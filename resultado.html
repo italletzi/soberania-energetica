@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Huella Energética — Resultado · Mónica Mendoza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  .result-type{font-family:var(--font-serif);font-size:2.2rem;font-weight:600;color:var(--plum);line-height:1.1;margin-bottom:0.25rem}
+  .result-sub{font-family:var(--font-serif);font-size:1.1rem;font-style:italic;color:var(--rose);margin-bottom:1.2rem}
+  .result-desc{font-size:0.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.8rem;padding:1.1rem 1.3rem;background:rgba(61,43,61,0.03);border-left:3px solid var(--rose-light);border-radius:0 10px 10px 0}
+  .fuga-item{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.65rem;font-size:0.85rem}
+  .fuga-bar-wrap{flex:1;height:5px;background:rgba(184,147,90,0.12);border-radius:100px;overflow:hidden}
+  .fuga-bar{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--rose),var(--gold));width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
+  .fuga-pct{font-size:0.76rem;color:var(--gold);font-weight:500;min-width:32px;text-align:right}
+  .next-steps{margin-top:2rem}
+  .step-card{border:1px solid rgba(184,147,90,0.18);border-radius:14px;padding:1.2rem;margin-bottom:0.8rem;background:white;display:flex;gap:1rem;align-items:flex-start}
+  .step-num{width:32px;height:32px;min-width:32px;border-radius:50%;background:rgba(200,133,106,0.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--rose)}
+  .step-content strong{display:block;color:var(--plum);font-weight:500;font-size:0.95rem;margin-bottom:0.2rem}
+  .step-content p{font-size:0.83rem;margin:0;line-height:1.6}
+  .cta-final{background:linear-gradient(135deg,var(--plum),var(--plum-mid));border-radius:18px;padding:2rem;text-align:center;margin-top:1.5rem}
+  .cta-final h2{font-family:var(--font-serif);font-size:1.6rem;font-weight:300;color:white;margin-bottom:0.5rem}
+  .cta-final p{font-size:0.85rem;color:rgba(255,255,255,0.65);margin-bottom:1.3rem;line-height:1.65}
+</style>
+</head>
+<body>
+<div class="container" style="padding:1.5rem 1.25rem 3rem">
+
+  <header class="site-header" style="padding-top:0.5rem">
+    <span style="font-family:var(--font-serif);font-size:1.5rem;color:var(--plum)">MB3</span>
+    <span class="site-brand-name">Mónica Mendoza</span>
+  </header>
+
+  <div class="badge" style="margin-bottom:1rem" id="result-badge">✦ Tu diagnóstico de Huella Energética</div>
+
+  <div class="result-type" id="r-type">Cargando...</div>
+  <div class="result-sub" id="r-sub"></div>
+  <div class="result-desc" id="r-desc"></div>
+
+  <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);font-weight:500;margin-bottom:0.9rem">Tus principales fugas de energía</p>
+  <div id="fugas-bars"></div>
+
+  <div class="next-steps">
+    <h2 style="margin-bottom:1rem;font-size:1.6rem">Tu próximo paso</h2>
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <strong>Masterclass gratuita</strong>
+        <p>Energía vital: el combustible secreto de la magia y la creación. Próxima fecha por confirmar.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <strong>Curso Iniciación — 6 semanas</strong>
+        <p>Inicia 21 de abril. Martes 8pm CDMX. $4,500 MXN.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <strong>Sesión 0 de Diagnóstico profundo</strong>
+        <p>1.5 horas con Mónica en directo. $1,500 MXN (abono a mentoría completa).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-final">
+    <h2 id="cta-nombre">¿Lista para dar el siguiente paso?</h2>
+    <p>Platica con Mónica directamente. Sin compromiso. Solo para mujeres listas para recuperar su soberanía energética.</p>
+    <button class="btn btn-whatsapp" onclick="openWA()" style="width:100%;margin-bottom:0.7rem">
+      Hablar con Mónica por WhatsApp
+    </button>
+    <a href="curso.html" class="btn btn-secondary" style="width:100%;display:flex;color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2)">
+      Ver el Curso de Iniciación →
+    </a>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  © 2026 Mónica Mendoza · <a href="index.html">← Hacer el test de nuevo</a>
+</footer>
+
+<div id="toast" class="toast"></div>
+<script src="js/main.js"></script>
+<script>
+const RESULTS = {
+  alta:{type:'Alta Soberanía Energética',sub:'Estás en expansión — y lo sabes.',desc:'Tus fugas son menores y ya las estás gestionando. Tienes conciencia de tu energía y la cuidas. El siguiente nivel para ti no es reparar, sino afinar: hay patrones sutiles que, al trabajarlos, van a multiplicar lo que ya tienes.',fugas:[{l:'Relaciones',p:22},{l:'Trabajo',p:18},{l:'Cuerpo',p:20},{l:'Mente',p:28}]},
+  media:{type:'Fuga Energética Silenciosa',sub:'Funciona todo — pero algo te drena sin poder señalarlo.',desc:'Tienes éxito visible y una vida resuelta. Pero hay una capa debajo donde la energía se escapa: en lo que no dices, en lo que pospones, en el ritmo que no te pertenece. Este es el patrón más común en mujeres de tu perfil.',fugas:[{l:'Mente & Creencias',p:65},{l:'Identidad',p:70},{l:'Relaciones',p:50},{l:'Poder',p:55}]},
+  alta_fuga:{type:'Modo Supervivencia Activo',sub:'Estás dando mucho más de lo que recibes.',desc:'Tu energía vital se está fugando por múltiples frentes. No es debilidad — es el resultado de años priorizando todo antes que a ti misma. Este patrón tiene nombre, tiene raíz, y tiene salida.',fugas:[{l:'Cuerpo & Descanso',p:85},{l:'Mente & Creencias',p:78},{l:'Relaciones',p:72},{l:'Poder & Expansión',p:80}]},
+};
+
+window.addEventListener('DOMContentLoaded',()=>{
+  const perfil = getProfile();
+  const nombre = perfil.nombre ? perfil.nombre.split(' ')[0] : '';
+  const score  = perfil.puntaje || 0;
+  const avg    = score / 7;
+  let result   = avg < 1.5 ? RESULTS.alta : avg < 3 ? RESULTS.media : RESULTS.alta_fuga;
+
+  // Si no hay perfil guardado, usar resultado medio
+  if (!perfil.perfil) result = RESULTS.media;
+
+  document.getElementById('r-type').textContent = result.type;
+  document.getElementById('r-sub').textContent  = result.sub;
+  document.getElementById('r-desc').textContent = result.desc;
+  if (nombre) document.getElementById('cta-nombre').textContent = `${nombre}, ¿lista para dar el siguiente paso?`;
+
+  const barsEl = document.getElementById('fugas-bars');
+  result.fugas.forEach(f=>{
+    const row = document.createElement('div');
+    row.className = 'fuga-item';
+    row.innerHTML = `<span style="min-width:120px;font-size:0.8rem;color:var(--text-muted)">${f.l}</span><div class="fuga-bar-wrap"><div class="fuga-bar" data-p="${f.p}"></div></div><span class="fuga-pct">${f.p}%</span>`;
+    barsEl.appendChild(row);
+  });
+  setTimeout(()=>document.querySelectorAll('.fuga-bar').forEach(b=>b.style.width=b.dataset.p+'%'),200);
+});
+
+function openWA(){
+  const perfil = getProfile();
+  const nombre = perfil.nombre ? perfil.nombre.split(' ')[0] : '';
+  const msg = nombre
+    ? `Hola Mónica, soy ${nombre}. Acabo de hacer el test de Huella Energética y quiero platicar sobre mis resultados 🌿`
+    : 'Hola Mónica, acabo de hacer el test de Huella Energética y quiero platicar 🌿';
+  window.open(`https://wa.me/${CONFIG.WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/curso"
+  to = "/curso.html"
+  status = 200
+
+[[redirects]]
+  from = "/sesion0"
+  to = "/sesion0.html"
+  status = 200
+
+[[redirects]]
+  from = "/resultado"
+  to = "/resultado.html"
+  status = 200
+
+[build]
+  publish = "."

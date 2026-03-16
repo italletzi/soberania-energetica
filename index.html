@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Cuál es tu Huella Energética? — Mónica Mendoza</title>
+<meta name="description" content="Descubre dónde se te fuga la energía vital. Test gratuito de 7 preguntas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  .app{padding:1.5rem 1rem 3rem;display:flex;flex-direction:column;align-items:center}
+  .screen{display:none;max-width:600px;width:100%}
+  .screen.active{display:block;animation:fadeUp 0.5s ease forwards}
+  .option-btn{display:flex;align-items:flex-start;gap:0.9rem;padding:0.9rem 1.1rem;background:rgba(255,255,255,0.6);border:1.5px solid rgba(184,147,90,0.2);border-radius:14px;cursor:pointer;text-align:left;transition:all 0.22s;font-family:var(--font-sans);font-size:0.9rem;color:var(--text);line-height:1.5;width:100%;margin-bottom:0.65rem}
+  .option-btn:hover{border-color:var(--rose-light);background:rgba(232,176,154,0.08);transform:translateX(4px)}
+  .option-btn.selected{border-color:var(--rose);background:rgba(200,133,106,0.08);color:var(--plum)}
+  .option-letter{width:26px;height:26px;min-width:26px;border-radius:50%;background:rgba(184,147,90,0.12);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:600;color:var(--gold);transition:all 0.2s;flex-shrink:0;margin-top:1px}
+  .option-btn.selected .option-letter{background:var(--rose);color:white}
+  .q-category{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose);font-weight:500;margin-bottom:0.7rem}
+  .result-type{font-family:var(--font-serif);font-size:2rem;font-weight:600;color:var(--plum);line-height:1.15;margin-bottom:0.25rem}
+  .result-sub{font-family:var(--font-serif);font-size:1.05rem;font-style:italic;color:var(--rose);margin-bottom:1.2rem}
+  .result-desc{font-size:0.9rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.8rem;padding:1.1rem 1.3rem;background:rgba(61,43,61,0.03);border-left:3px solid var(--rose-light);border-radius:0 10px 10px 0}
+  .fuga-item{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.65rem;font-size:0.85rem}
+  .fuga-bar-wrap{flex:1;height:5px;background:rgba(184,147,90,0.12);border-radius:100px;overflow:hidden}
+  .fuga-bar{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--rose),var(--gold));width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
+  .fuga-pct{font-size:0.76rem;color:var(--gold);font-weight:500;min-width:32px;text-align:right}
+  .cta-box{background:linear-gradient(135deg,var(--plum),var(--plum-mid));border-radius:18px;padding:1.6rem;text-align:center;margin-bottom:0.8rem}
+  .cta-box h3{font-family:var(--font-serif);font-size:1.35rem;font-weight:300;color:white;margin-bottom:0.4rem}
+  .cta-box p{font-size:0.8rem;color:rgba(255,255,255,0.6);margin-bottom:1.3rem;line-height:1.6}
+  .time-note{text-align:center;font-size:0.78rem;color:var(--text-muted);margin-bottom:1.8rem}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- INTRO -->
+  <div class="screen active card fade-up" id="screen-intro">
+    <div class="site-header">
+      <!-- REEMPLAZAR src con img/logo-mb3.png cuando esté listo -->
+      <span style="font-family:var(--font-serif);font-size:2rem;color:var(--plum);letter-spacing:0.1em">MB3</span>
+      <span class="site-brand-name">Mónica Mendoza</span>
+      <span class="site-brand-sub">Soberanía Energética</span>
+    </div>
+    <h1 style="text-align:center;margin-bottom:1rem">¿Dónde se te <em>fuga</em> la energía?</h1>
+    <p style="text-align:center;margin-bottom:1.5rem">Tienes logros, responsabilidades, una vida resuelta — y aun así algo te drena cada día. Este diagnóstico identifica tus fugas principales.</p>
+    <div class="pills" style="margin-bottom:1.5rem">
+      <span class="pill">Relaciones</span><span class="pill">Trabajo</span>
+      <span class="pill">Cuerpo</span><span class="pill">Mente</span><span class="pill">Poder</span>
+    </div>
+    <p class="time-note">⏱ 3 minutos · 7 preguntas · Diagnóstico personalizado</p>
+    <button class="btn btn-primary" onclick="startQuiz()">Descubrir mi Huella Energética →</button>
+  </div>
+
+  <!-- PREGUNTA -->
+  <div class="screen card" id="screen-question">
+    <div class="progress-wrap">
+      <div class="progress-header">
+        <span class="progress-label">Tu diagnóstico</span>
+        <span class="progress-count" id="q-count">1 / 7</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:14%"></div></div>
+    </div>
+    <div class="q-category" id="q-cat"></div>
+    <h2 id="q-text" style="margin-bottom:0.5rem;font-size:1.6rem"></h2>
+    <p id="q-sub" style="margin-bottom:1.5rem"></p>
+    <div id="options-grid"></div>
+    <button class="btn btn-secondary" id="btn-next" onclick="nextQ()" style="display:none;width:100%;margin-top:0.5rem">Continuar →</button>
+  </div>
+
+  <!-- CAPTURA -->
+  <div class="screen card" id="screen-capture">
+    <div class="site-header" style="padding-top:0.5rem">
+      <span style="font-family:var(--font-serif);font-size:1.5rem;color:var(--plum)">MB3</span>
+    </div>
+    <h2 style="text-align:center;margin-bottom:0.5rem">Tu diagnóstico <em>está listo</em></h2>
+    <p style="text-align:center;margin-bottom:1.5rem">Déjame tu WhatsApp para enviarte el análisis completo y los pasos para recuperar tu soberanía energética.</p>
+    <div class="field-group">
+      <label class="field-label" for="f-name">Tu nombre</label>
+      <input class="field-input" type="text" id="f-name" placeholder="¿Cómo te llamas?">
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="f-wa">WhatsApp</label>
+      <input class="field-input" type="tel" id="f-wa" placeholder="+52 55 0000 0000">
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="f-email">Email (opcional)</label>
+      <input class="field-input" type="email" id="f-email" placeholder="tu@correo.com">
+    </div>
+    <button class="btn btn-primary" onclick="submitLead()" style="margin-top:0.5rem">Ver mi diagnóstico →</button>
+    <p style="font-size:0.73rem;color:var(--text-muted);text-align:center;margin-top:0.8rem">🔒 Tu información es confidencial. No enviamos spam.</p>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="screen card" id="screen-result">
+    <div class="badge" style="margin-bottom:1rem">✦ Tu diagnóstico de Huella Energética</div>
+    <div class="result-type" id="r-type"></div>
+    <div class="result-sub" id="r-sub"></div>
+    <div class="result-desc" id="r-desc"></div>
+    <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);font-weight:500;margin-bottom:0.9rem">Tus principales fugas</p>
+    <div id="fugas-bars"></div>
+    <div class="cta-box" style="margin-top:1.5rem">
+      <h3 id="r-cta-title">Tu próximo paso</h3>
+      <p>Agenda una sesión de claridad de 30 min con Mónica. Sin compromiso.</p>
+      <button class="btn btn-whatsapp" onclick="openWA('Hola Mónica, acabo de hacer el test de Huella Energética y quiero platicar sobre mis resultados 🌿')" style="width:100%">
+        Hablar con Mónica por WhatsApp
+      </button>
+    </div>
+    <p style="text-align:center;margin-top:1rem">
+      <a href="curso.html" style="color:var(--gold);font-size:0.85rem;text-decoration:underline">Ver el Curso de Iniciación →</a>
+    </p>
+  </div>
+
+</div>
+<div id="toast" class="toast"></div>
+
+<footer class="site-footer">
+  © 2026 Mónica Mendoza · Soberanía Energética ·
+  <a href="mailto:hola@monicamendoza.mx">hola@monicamendoza.mx</a>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+const QUESTIONS = [
+  {cat:'Relaciones',text:'En tus vínculos más cercanos, ¿cómo te sientes al terminar de interactuar?',sub:'Elige la que más se acerque a tu experiencia habitual.',opts:['Más ligera y recargada — me nutren','Neutral — ni suma ni resta','Un poco agotada, pero lo acepto','Completamente drenada — como si me vaciaran'],scores:{rel:[0,1,2,4]}},
+  {cat:'Trabajo & Logro',text:'Al final del día, ¿qué tan satisfecha te sientes con lo que hiciste?',sub:'Piensa en la semana pasada.',opts:['Muy satisfecha — trabajo desde mi propósito','A veces sí, pero podría dar más','Productiva pero sin chispa','Atrapada apagando incendios'],scores:{trab:[0,1,3,4]}},
+  {cat:'Cuerpo & Descanso',text:'¿Cómo despiertas la mayoría de los días?',sub:'Sé honesta contigo.',opts:['Descansada y con energía','Más o menos — necesito café','Cansada aunque haya dormido bien','Agotada antes de empezar'],scores:{cuerpo:[0,1,3,4]}},
+  {cat:'Mente & Creencias',text:'Cuando logras una meta importante, ¿cuánto disfrutas el logro?',sub:'Reconocer esto es un acto de valentía.',opts:['Lo disfruto plenamente','Unos días, luego ya estoy en la siguiente','Casi nada — ya pienso en qué sigue','No recuerdo cuándo celebré algo'],scores:{mente:[0,1,3,4]}},
+  {cat:'Entorno & Estímulos',text:'Tu espacio físico y digital, ¿cómo te afecta?',sub:'El entorno habla aunque no lo escuchemos.',opts:['Me recarga — está para mi bienestar','Neutral — no le doy importancia','Mucho ruido — no he podido cambiarlo','Me drena — el caos externo refleja el interno'],scores:{entorno:[0,1,2,4]}},
+  {cat:'Poder & Expansión',text:'¿Qué tan seguido sientes que hay un techo invisible que no puedes romper?',sub:'Esta es la pregunta más importante del diagnóstico.',opts:['No lo siento — estoy en expansión','A veces, hay áreas estancadas','Con frecuencia — algo me frena','Todo el tiempo — es imposible pasar al siguiente nivel'],scores:{poder:[0,1,3,4]}},
+  {cat:'Identidad & Prioridades',text:'¿Con qué frecuencia haces algo solo porque TÚ lo quieres, sin justificación?',sub:'Tu respuesta honesta dice mucho.',opts:['Regularmente — me doy espacio','Cuando puedo — está en "para después"','Casi nunca — me cuesta sin sentir culpa','No recuerdo la última vez'],scores:{ident:[0,1,3,4]}},
+];
+
+const RESULTS = {
+  alta:{type:'Alta Soberanía Energética',sub:'Estás en expansión — y lo sabes.',desc:'Tus fugas son menores y ya las estás gestionando. El siguiente nivel no es reparar, es afinar. Hay patrones sutiles que, al trabajarlos, van a multiplicar lo que ya tienes.',fugas:[{l:'Relaciones',p:22},{l:'Trabajo',p:18},{l:'Cuerpo',p:20},{l:'Mente',p:28}]},
+  media:{type:'Fuga Energética Silenciosa',sub:'Funciona todo — pero algo te drena sin poder señalarlo.',desc:'Tienes éxito visible y una vida resuelta. Pero hay una capa debajo donde la energía se escapa: en lo que no dices, en lo que pospones, en el ritmo que no te pertenece.',fugas:[{l:'Mente & Creencias',p:65},{l:'Identidad',p:70},{l:'Relaciones',p:50},{l:'Poder',p:55}]},
+  alta_fuga:{type:'Modo Supervivencia Activo',sub:'Estás dando mucho más de lo que recibes.',desc:'Tu energía vital se está fugando por múltiples frentes. No es debilidad — es el resultado de años priorizando todo antes que a ti misma. Este patrón tiene nombre, tiene raíz, y tiene salida.',fugas:[{l:'Cuerpo & Descanso',p:85},{l:'Mente & Creencias',p:78},{l:'Relaciones',p:72},{l:'Poder & Expansión',p:80}]},
+};
+
+let current=0, answers={}, totalScore=0, userName='';
+
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  const el=document.getElementById(id);
+  el.style.animation='none';el.offsetHeight;el.style.animation='';
+  el.classList.add('active');el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function startQuiz(){showScreen('screen-question');renderQuestion();}
+
+function renderQuestion(){
+  const q=QUESTIONS[current];
+  document.getElementById('q-count').textContent=`${current+1} / ${QUESTIONS.length}`;
+  document.getElementById('progress-fill').style.width=`${((current+1)/QUESTIONS.length)*100}%`;
+  document.getElementById('q-cat').textContent=q.cat;
+  document.getElementById('q-text').textContent=q.text;
+  document.getElementById('q-sub').textContent=q.sub;
+  const grid=document.getElementById('options-grid');
+  grid.innerHTML='';
+  const letters=['A','B','C','D'];
+  q.opts.forEach((opt,i)=>{
+    const btn=document.createElement('button');
+    btn.className='option-btn';
+    btn.innerHTML=`<span class="option-letter">${letters[i]}</span><span>${opt}</span>`;
+    btn.onclick=()=>selectOption(i,btn);
+    grid.appendChild(btn);
+  });
+  document.getElementById('btn-next').style.display='none';
+}
+
+let autoTimer;
+function selectOption(idx,btn){
+  clearTimeout(autoTimer);
+  document.querySelectorAll('.option-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[current]=idx;totalScore+=idx;
+  document.getElementById('btn-next').style.display='block';
+  if(idx>=2)autoTimer=setTimeout(()=>nextQ(),900);
+}
+
+function nextQ(){
+  clearTimeout(autoTimer);
+  if(answers[current]===undefined){showToast('Elige una opción para continuar');return;}
+  current++;
+  if(current>=QUESTIONS.length){showScreen('screen-capture');return;}
+  renderQuestion();
+}
+
+function submitLead(){
+  const name=document.getElementById('f-name').value.trim();
+  const wa=document.getElementById('f-wa').value.trim();
+  if(!name||!wa){showToast('Por favor completa tu nombre y WhatsApp');return;}
+  userName=name.split(' ')[0];
+  const avg=totalScore/QUESTIONS.length;
+  let result=avg<1.5?RESULTS.alta:avg<3?RESULTS.media:RESULTS.alta_fuga;
+
+  // Enviar a n8n
+  const perfil=result.type;
+  const wa_clean=wa.replace(/[^0-9]/g,'');
+  const waNum=wa_clean.startsWith('52')?wa_clean:'52'+wa_clean;
+  sendLeadToN8N({nombre:name,whatsapp:waNum,email:document.getElementById('f-email').value,perfil,puntaje:totalScore});
+  saveProfile({nombre:name,whatsapp:waNum,perfil,puntaje:totalScore});
+
+  // Mostrar resultado
+  document.getElementById('r-type').textContent=result.type;
+  document.getElementById('r-sub').textContent=result.sub;
+  document.getElementById('r-desc').textContent=result.desc;
+  document.getElementById('r-cta-title').textContent=`${userName}, tu próximo paso`;
+  const barsEl=document.getElementById('fugas-bars');
+  barsEl.innerHTML='';
+  result.fugas.forEach(f=>{
+    const row=document.createElement('div');row.className='fuga-item';
+    row.innerHTML=`<span style="min-width:120px;font-size:0.8rem;color:var(--text-muted)">${f.l}</span><div class="fuga-bar-wrap"><div class="fuga-bar" data-p="${f.p}"></div></div><span class="fuga-pct">${f.p}%</span>`;
+    barsEl.appendChild(row);
+  });
+  showScreen('screen-result');
+  setTimeout(()=>document.querySelectorAll('.fuga-bar').forEach(b=>b.style.width=b.dataset.p+'%'),200);
+}
+</script>
+</body>
+</html>
