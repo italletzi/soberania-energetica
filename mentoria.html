@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentoría: Mapa de Reconfiguración — Mónica Mendoza</title>
+<meta name="description" content="Un proceso guiado de 12 semanas para transformar tu realidad desde la raíz. Percepción en directo. Leyes del Universo. $22,000 MXN.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* ── HERO ── */
+.hero{background:var(--plum);padding:4.5rem 1.5rem 3.5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(200,133,106,0.12) 0%,transparent 60%),radial-gradient(ellipse at 70% 20%,rgba(184,147,90,0.08) 0%,transparent 50%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid rgba(184,147,90,0.35);border-radius:100px;padding:0.35rem 1.1rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-light);font-weight:500;margin-bottom:1.5rem}
+.hero h1{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.6rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:0.8rem}
+.hero h1 em{font-style:italic;color:var(--rose-light)}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.65);max-width:520px;margin:0 auto 2rem;line-height:1.75}
+.hero-price{display:inline-flex;align-items:baseline;gap:0.4rem;margin-bottom:0.5rem}
+.price-amount{font-family:var(--font-serif);font-size:3.2rem;font-weight:600;color:var(--white)}
+.price-currency{font-size:1.2rem;color:var(--gold-light)}
+.hero-price-note{font-size:0.8rem;color:rgba(255,255,255,0.45);margin-bottom:2rem}
+.hero-ctas{display:flex;flex-direction:column;gap:0.7rem;max-width:360px;margin:0 auto}
+.btn-hero-primary{background:linear-gradient(135deg,var(--rose),var(--gold));color:white;border:none;border-radius:100px;padding:1rem 2.5rem;font-family:var(--font-sans);font-size:1rem;font-weight:500;cursor:pointer;box-shadow:0 4px 24px rgba(200,133,106,0.4);transition:all 0.2s;text-decoration:none;display:block;text-align:center}
+.btn-hero-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,133,106,0.5)}
+.btn-hero-secondary{background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);border-radius:100px;padding:0.85rem 2rem;font-family:var(--font-sans);font-size:0.9rem;cursor:pointer;transition:all 0.2s;text-decoration:none;display:block;text-align:center}
+.btn-hero-secondary:hover{background:rgba(255,255,255,0.07);color:white}
+
+/* ── CONTAINER ── */
+.container-md{max-width:760px;margin:0 auto;padding:0 1.5rem}
+.section{padding:4rem 0}
+.section-alt{background:var(--cream-2)}
+
+/* ── INTRO STATEMENT ── */
+.statement{font-family:var(--font-serif);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:300;color:var(--plum);line-height:1.5;text-align:center;padding:3rem 0;border-bottom:1px solid rgba(184,147,90,0.15)}
+.statement em{font-style:italic;color:var(--rose)}
+
+/* ── PARA QUIEN ── */
+.sec-label{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;display:block;margin-bottom:0.8rem}
+.sec-title{font-family:var(--font-serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:300;color:var(--plum);line-height:1.15;margin-bottom:1rem}
+.sec-title em{font-style:italic;color:var(--rose)}
+.sec-intro{font-size:0.95rem;color:var(--text-muted);line-height:1.8;margin-bottom:2rem}
+
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:2rem}
+@media(max-width:540px){.pain-grid{grid-template-columns:1fr}}
+.pain-item{display:flex;gap:0.8rem;align-items:flex-start;padding:1rem 1.1rem;background:white;border:1px solid rgba(184,147,90,0.15);border-radius:12px}
+.pain-dot{width:8px;height:8px;border-radius:50%;background:var(--rose);flex-shrink:0;margin-top:5px}
+.pain-text{font-size:0.88rem;color:var(--text-muted);line-height:1.6}
+
+/* ── FASES ── */
+.fases-wrap{margin:2rem 0}
+.fase{margin-bottom:1.5rem;border-radius:16px;overflow:hidden}
+.fase-head{padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;cursor:pointer}
+.fase-head.f1{background:var(--plum)}
+.fase-head.f2{background:var(--plum2)}
+.fase-head.f3{background:linear-gradient(135deg,var(--rose),var(--gold))}
+.fase-num{font-family:var(--font-serif);font-size:2rem;font-weight:600;color:rgba(255,255,255,0.25);line-height:1;flex-shrink:0;width:40px}
+.fase-info{flex:1}
+.fase-label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.2rem}
+.fase-title{font-family:var(--font-serif);font-size:1.2rem;color:white;font-weight:400}
+.fase-weeks{font-size:0.78rem;color:rgba(255,255,255,0.55);margin-top:0.15rem}
+.fase-body{background:white;border:1px solid rgba(184,147,90,0.15);border-top:none;border-radius:0 0 16px 16px;padding:1.4rem}
+.semana-item{display:flex;gap:1rem;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(184,147,90,0.1)}
+.semana-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.semana-num{font-size:0.7rem;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;min-width:72px;flex-shrink:0;padding-top:2px}
+.semana-content{}
+.semana-title{font-weight:500;font-size:0.92rem;color:var(--plum);margin-bottom:0.25rem}
+.semana-desc{font-size:0.82rem;color:var(--text-muted);line-height:1.6}
+
+/* ── FACULTAD ── */
+.facultad-box{background:var(--plum);border-radius:20px;padding:2.5rem;margin:2rem 0}
+.facultad-box h3{font-family:var(--font-serif);font-size:1.6rem;font-weight:300;color:white;margin-bottom:1rem}
+.facultad-box h3 em{font-style:italic;color:var(--rose-light)}
+.facultad-box p{font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:1rem}
+.facultad-box p:last-child{margin-bottom:0}
+.facultad-quote{border-left:3px solid var(--gold);padding:0.8rem 1.2rem;margin:1.2rem 0;font-family:var(--font-serif);font-size:1rem;font-style:italic;color:var(--gold-light);line-height:1.65;border-radius:0 8px 8px 0;background:rgba(184,147,90,0.08)}
+
+/* ── INCLUDES ── */
+.includes-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem;margin:1.5rem 0}
+@media(max-width:540px){.includes-grid{grid-template-columns:1fr}}
+.include-item{padding:1rem 1.1rem;background:white;border:1px solid rgba(184,147,90,0.15);border-radius:12px;display:flex;gap:0.8rem;align-items:flex-start}
+.include-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+.include-text strong{display:block;font-size:0.88rem;color:var(--plum);font-weight:500;margin-bottom:0.15rem}
+.include-text span{font-size:0.8rem;color:var(--text-muted);line-height:1.55}
+
+/* ── INVERSION ── */
+.inversion-box{background:white;border:1px solid rgba(184,147,90,0.2);border-radius:20px;padding:2.5rem;text-align:center;margin:2rem 0;box-shadow:0 4px 32px rgba(61,43,61,0.06)}
+.inv-price{font-family:var(--font-serif);font-size:4rem;font-weight:600;color:var(--plum);line-height:1}
+.inv-currency{font-size:1.5rem;color:var(--text-muted);vertical-align:top;margin-top:0.8rem;display:inline-block}
+.inv-note{font-size:0.85rem;color:var(--text-muted);margin:0.5rem 0 1.5rem;line-height:1.65}
+.payment-methods{display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center;margin-bottom:1.5rem}
+.pm-chip{background:var(--cream-2);border:1px solid rgba(184,147,90,0.2);border-radius:100px;padding:0.25rem 0.8rem;font-size:0.75rem;color:var(--text-muted)}
+.sesion0-note{background:rgba(184,147,90,0.07);border:1px solid rgba(184,147,90,0.2);border-radius:12px;padding:0.9rem 1.1rem;font-size:0.85rem;color:var(--text-muted);line-height:1.65;margin-bottom:1.5rem;text-align:left}
+.sesion0-note strong{color:var(--plum)}
+
+/* ── STICKY CTA ── */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid rgba(184,147,90,0.18);padding:0.9rem 1.5rem;z-index:50;box-shadow:0 -4px 20px rgba(61,43,61,0.07)}
+.sticky-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+@media(max-width:480px){.sticky-inner{flex-direction:column;gap:0.5rem}}
+body{padding-bottom:90px}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container-md">
+    <div class="hero-badge">✦ Mentoría individual · 12 semanas</div>
+    <h1>Mapa de<br><em>Reconfiguración</em></h1>
+    <p class="hero-sub">Un proceso guiado por percepción en directo y las Leyes del Universo para transformar tu realidad desde la raíz.</p>
+    <div class="hero-price">
+      <span class="price-currency">$</span>
+      <span class="price-amount">22,000</span>
+      <span class="price-currency">MXN</span>
+    </div>
+    <p class="hero-price-note">Presencial en Narvarte, CDMX · o en línea</p>
+    <div class="hero-ctas">
+      <a href="#inversion" class="btn-hero-primary">Quiero iniciar este proceso →</a>
+      <a href="#fases" class="btn-hero-secondary">Ver las 12 semanas</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATEMENT -->
+<div class="container-md">
+  <p class="statement">
+    La mayoría vive intentando cambiar su realidad manipulando el exterior.<br>
+    Pero hay una verdad que casi nadie está mirando:<br>
+    <em>La vida no responde a lo que haces,<br>responde a la energía con la que existes.</em>
+  </p>
+</div>
+
+<!-- PARA QUIÉN -->
+<div class="section">
+  <div class="container-md">
+    <span class="sec-label">¿Para quién es este proceso?</span>
+    <h2 class="sec-title">Para mujeres que ya lo <em>intentaron todo</em></h2>
+    <p class="sec-intro">Terapia, coaching, meditación, libros de autoayuda. Has hecho el trabajo — y aun así algo en tu realidad se repite. Hay un nivel que no has podido cruzar. Este proceso trabaja donde los demás no llegan.</p>
+    <div class="pain-grid">
+      <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">Tienes éxito externo pero hay un techo invisible que no puedes romper sin importar cuánto trabajes</p></div>
+      <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">Los mismos patrones se repiten en tus relaciones, tu economía o tu salud — como si fueran inevitables</p></div>
+      <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">Sientes que das mucho más de lo que recibes y no entiendes por qué no cambia</p></div>
+      <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">Hay una sensación de bloqueo que no puedes identificar racionalmente — simplemente sabes que algo no fluye</p></div>
+      <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">Quieres crecer, expandirte, crear — pero algo en tu energía se frena antes de llegar</p></div>
+      <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">Las terapias convencionales te han dado claridad mental pero el cambio real no llega al cuerpo ni a la vida</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- MI FACULTAD -->
+<div class="section section-alt">
+  <div class="container-md">
+    <div class="facultad-box">
+      <span class="sec-label" style="color:var(--gold-light)">Mi facultad: La Percepción en Directo</span>
+      <h3>A diferencia de otros procesos,<br>aquí no perdemos tiempo en <em>suposiciones</em></h3>
+      <p>Mi trabajo no es solo escucharte — es leer el lenguaje de tu Huella. Tengo la capacidad de percibir los puntos de tensión en tu campo emocional y detectar dónde se detuvo el pulso de tu vida.</p>
+      <div class="facultad-quote">"Donde tú sientes un síntoma o un diagnóstico, yo detecto una energía atrapada esperando ser liberada."</div>
+      <p>Yo no doy terapia. Yo hago que la energía se mueva a través del símbolo y el cuerpo. En mis sesiones, el cambio no es una idea — es una sensación física de liberación. Tu cuerpo es el termómetro: si el nudo se suelta en tu campo energético, se suelta en tu cuerpo y lo percibes en ese instante.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FASES -->
+<div class="section" id="fases">
+  <div class="container-md">
+    <span class="sec-label">El proceso completo</span>
+    <h2 class="sec-title">Las <em>12 semanas</em></h2>
+    <p class="sec-intro">Tres fases diseñadas para ir al núcleo, moverlo y generar transformación tangible. 1.5 horas semanales. Presencial en Narvarte o en línea.</p>
+
+    <div class="fases-wrap">
+
+      <!-- FASE 1 -->
+      <div class="fase">
+        <div class="fase-head f1">
+          <div class="fase-num">01</div>
+          <div class="fase-info">
+            <div class="fase-label">Semanas 1–3</div>
+            <div class="fase-title">Diagnóstico de Huella y Escaneo de Resonancia</div>
+            <div class="fase-weeks">3 sesiones · Identificación y mapeo</div>
+          </div>
+        </div>
+        <div class="fase-body">
+          <div class="semana-item">
+            <div class="semana-num">Semana 1</div>
+            <div class="semana-content">
+              <div class="semana-title">Diagnóstico profundo</div>
+              <div class="semana-desc">¿Dónde se te está yendo la vida? Evaluación de drenajes energéticos. Identificación de patrón dominante. Arquetipo actual (Arcanos mayores del tarot). Primer ejercicio corporal: Mapa físico de fugas de energía.</div>
+            </div>
+          </div>
+          <div class="semana-item">
+            <div class="semana-num">Semana 2</div>
+            <div class="semana-content">
+              <div class="semana-title">Trauma como energía atrapada</div>
+              <div class="semana-desc">Qué es trauma somático. Cómo se almacena en el cuerpo. Identificar 3 principales fugas energéticas. Trabajo corporal guiado.</div>
+            </div>
+          </div>
+          <div class="semana-item">
+            <div class="semana-num">Semana 3</div>
+            <div class="semana-content">
+              <div class="semana-title">Mecanismos de supervivencia</div>
+              <div class="semana-desc">Niño herido. Masculino/femenino desequilibrado. Patrones repetitivos. Identificación de 5 temas raíz que drenan energía.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE 2 -->
+      <div class="fase">
+        <div class="fase-head f2">
+          <div class="fase-num">02</div>
+          <div class="fase-info">
+            <div class="fase-label">Semanas 4–8</div>
+            <div class="fase-title">Liberación y Transmutación</div>
+            <div class="fase-weeks">5 sesiones · Cada semana toca un drenaje estructural</div>
+          </div>
+        </div>
+        <div class="fase-body">
+          <div class="semana-item">
+            <div class="semana-num">Semana 4</div>
+            <div class="semana-content">
+              <div class="semana-title">Ancestros y ADN emocional</div>
+              <div class="semana-desc">Lealtades invisibles. Mandatos familiares. Trabajo energético + ritual.</div>
+            </div>
+          </div>
+          <div class="semana-item">
+            <div class="semana-num">Semana 5</div>
+            <div class="semana-content">
+              <div class="semana-title">Infancia y abandono / rechazo</div>
+              <div class="semana-desc">Identidad formada en supervivencia. Liberación corporal. Trabajo de rabia y dolor no resuelto.</div>
+            </div>
+          </div>
+          <div class="semana-item">
+            <div class="semana-num">Semana 6</div>
+            <div class="semana-content">
+              <div class="semana-title">Vínculos y energía relacional</div>
+              <div class="semana-desc">Cómo eliges pareja. Cómo repites el patrón. Reconfiguración energética del vínculo.</div>
+            </div>
+          </div>
+          <div class="semana-item">
+            <div class="semana-num">Semana 7</div>
+            <div class="semana-content">
+              <div class="semana-title">Masculino y femenino interno</div>
+              <div class="semana-desc">Energía de acción vs recepción. Sexualidad como energía creativa. Tantra aplicado — práctico, no esotérico.</div>
+            </div>
+          </div>
+          <div class="semana-item">
+            <div class="semana-num">Semana 8</div>
+            <div class="semana-content">
+              <div class="semana-title">Liberación profunda final</div>
+              <div class="semana-desc">Ritual potente. Cierre de supervivencia. Integración somática. Recuperación de energía vital disponible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE 3 -->
+      <div class="fase">
+        <div class="fase-head f3">
+          <div class="fase-num">03</div>
+          <div class="fase-info">
+            <div class="fase-label">Semanas 9–12</div>
+            <div class="fase-title">Dirección y Creación</div>
+            <div class="fase-weeks">4 sesiones · Activación de tu poder creador</div>
+          </div>
+        </div>
+        <div class="fase-body">
+          <div class="semana-item">
+            <div class="semana-num">Semana 9</div>
+            <div class="semana-content">
+              <div class="semana-title">Principios universales de creación</div>
+              <div class="semana-desc">El cuerpo como microcosmos. Uso de rituales como movimiento energético. Ley de resonancia. Principios herméticos y mente inconsciente como portal de creación.</div>
+            </div>
+          </div>
+          <div class="semana-item">
+            <div class="semana-num">Semana 10</div>
+            <div class="semana-content">
+              <div class="semana-title">Energía sexual y propósito</div>
+              <div class="semana-desc">Canalización consciente. Cómo activar energía creativa. Cómo evitar volver a drenar.</div>
+            </div>
+          </div>
+          <div class="semana-item">
+            <div class="semana-num">Semana 11</div>
+            <div class="semana-content">
+              <div class="semana-title">Elección de intención concreta</div>
+              <div class="semana-desc">Cada persona elige su área de enfoque: Empresa · Dinero · Vínculo · Salud · Proyecto. Se diseña estrategia energética personalizada.</div>
+            </div>
+          </div>
+          <div class="semana-item">
+            <div class="semana-num">Semana 12</div>
+            <div class="semana-content">
+              <div class="semana-title">Ritual de activación</div>
+              <div class="semana-desc">Integración total. Declaración energética. Cierre ceremonial.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- INCLUDES -->
+<div class="section section-alt">
+  <div class="container-md">
+    <span class="sec-label">¿Qué vas a recibir?</span>
+    <h2 class="sec-title">Todo lo que <em>incluye</em></h2>
+    <div class="includes-grid">
+      <div class="include-item"><div class="include-icon">🎬</div><div class="include-text"><strong>Masterclass grabada</strong><span>Cómo funciona la resonancia energética de las memorias de tu cuerpo y cómo generar una identidad energética</span></div></div>
+      <div class="include-item"><div class="include-icon">🌿</div><div class="include-text"><strong>El cuerpo como extensión del cosmos</strong><span>Chakras, energía vital, conexión con el cosmos, los 5 elementos y su relación con el cuerpo</span></div></div>
+      <div class="include-item"><div class="include-icon">🌬️</div><div class="include-text"><strong>Estados ampliados de consciencia</strong><span>Técnicas de respiración para acceder a estados de expansión y liberación</span></div></div>
+      <div class="include-item"><div class="include-icon">🔥</div><div class="include-text"><strong>Protocolo de detox de regulación</strong><span>Dejar de consumir un elemento de desregulación a elegir: carne roja, alcohol, tabaco, café u otros</span></div></div>
+      <div class="include-item"><div class="include-icon">🗺️</div><div class="include-text"><strong>Cuestionario de fugas energéticas</strong><span>Mapa del cuerpo con ritual de sello de fugas energéticas</span></div></div>
+      <div class="include-item"><div class="include-icon">🌑</div><div class="include-text"><strong>Ceremonia de liberación ancestral</strong><span>Ritual profundo para soltar deudas y mandatos del linaje</span></div></div>
+      <div class="include-item"><div class="include-icon">✦</div><div class="include-text"><strong>Creación de símbolos personales de poder</strong><span>Diseño de tu nueva identidad energética y símbolo personal</span></div></div>
+      <div class="include-item"><div class="include-icon">🕯️</div><div class="include-text"><strong>Ritual de canalización de los 5 elementos</strong><span>Para dirigir la energía vital hacia tu intención concreta</span></div></div>
+      <div class="include-item"><div class="include-icon">🛡️</div><div class="include-text"><strong>Sello de energía personal</strong><span>Ritual de protección y cierre del proceso</span></div></div>
+      <div class="include-item"><div class="include-icon">📋</div><div class="include-text"><strong>Mapa impreso o digital</strong><span>Percepción en directo de tu Huella Energética — tu carta de presentación ante el Universo</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TRANSFORMACIÓN -->
+<div class="section">
+  <div class="container-md">
+    <span class="sec-label">El cambio real</span>
+    <h2 class="sec-title">Qué cambia cuando <em>sueltas la supervivencia</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.7rem;margin-top:1.5rem">
+      <div style="padding:1.1rem 1.2rem;background:white;border:1px solid rgba(184,147,90,0.15);border-radius:12px;border-left:3px solid var(--rose)">
+        <p style="font-size:0.9rem;color:var(--plum);font-weight:500;margin-bottom:0.2rem">Dejas la supervivencia</p>
+        <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.6">Dejas de operar en modo crisis y empiezas a crear desde un lugar de poder real</p>
+      </div>
+      <div style="padding:1.1rem 1.2rem;background:white;border:1px solid rgba(184,147,90,0.15);border-radius:12px;border-left:3px solid var(--gold)">
+        <p style="font-size:0.9rem;color:var(--plum);font-weight:500;margin-bottom:0.2rem">Recuperas energía vital</p>
+        <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.6">La energía que se iba en fugas invisibles vuelve a estar disponible para ti</p>
+      </div>
+      <div style="padding:1.1rem 1.2rem;background:white;border:1px solid rgba(184,147,90,0.15);border-radius:12px;border-left:3px solid var(--rose)">
+        <p style="font-size:0.9rem;color:var(--plum);font-weight:500;margin-bottom:0.2rem">Conectas con tu capacidad creadora</p>
+        <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.6">Lo que antes se sentía bloqueado empieza a moverse hacia lo que deseas</p>
+      </div>
+      <div style="padding:1.1rem 1.2rem;background:white;border:1px solid rgba(184,147,90,0.15);border-radius:12px;border-left:3px solid var(--gold)">
+        <p style="font-size:0.9rem;color:var(--plum);font-weight:500;margin-bottom:0.2rem">Empiezas a actuar sin forzarte</p>
+        <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.6">La acción fluye desde la alineación, no desde el esfuerzo o el miedo</p>
+      </div>
+      <div style="padding:1.1rem 1.2rem;background:white;border:1px solid rgba(184,147,90,0.15);border-radius:12px;border-left:3px solid var(--rose);grid-column:1/-1">
+        <p style="font-size:0.9rem;color:var(--plum);font-weight:500;margin-bottom:0.2rem">Tu postura, tu energía y tu vida empiezan a reflejarlo</p>
+        <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.6">El cambio no es una idea — es una sensación física que tu cuerpo registra y que el mundo externo refleja</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INVERSIÓN -->
+<div class="section section-alt" id="inversion">
+  <div class="container-md">
+    <span class="sec-label">Inversión</span>
+    <h2 class="sec-title" style="text-align:center">Un proceso <em>diseñado a 3 meses</em><br>para ir al núcleo</h2>
+    <div class="inversion-box">
+      <div style="margin-bottom:0.3rem">
+        <span class="inv-currency">$</span><span class="inv-price">22,000</span><span class="inv-currency"> MXN</span>
+      </div>
+      <p class="inv-note">12 sesiones · 1.5 horas semanales · Presencial en Narvarte CDMX o en línea<br>Incluye todos los rituales, materiales y clases grabadas</p>
+      <div class="sesion0-note">
+        <strong>¿Quieres conocer el proceso antes de decidir?</strong> La Sesión 0 de Diagnóstico tiene un costo de $1,500 MXN. Si ese mismo día decides iniciar la mentoría completa, los $1,500 se abonan al total.
+      </div>
+      <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.8rem">Métodos de pago:</p>
+      <div class="payment-methods">
+        <span class="pm-chip">Efectivo</span>
+        <span class="pm-chip">Transferencia</span>
+        <span class="pm-chip">VISA / Mastercard / AMEX</span>
+        <span class="pm-chip">+3.5% tarjeta</span>
+      </div>
+      <a href="sesion0.html" class="btn-hero-primary" style="max-width:380px;margin:0 auto 0.8rem;display:block">Agendar Sesión 0 — $1,500 MXN →</a>
+      <button class="btn-hero-secondary" style="max-width:380px;margin:0 auto;display:block;background:transparent;border:1px solid rgba(61,43,61,0.2);color:var(--plum)" onclick="openWA('Hola Mónica, me interesa saber más sobre la mentoría Mapa de Reconfiguración 🌿')">Escribir a Mónica por WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta">
+  <div class="sticky-inner">
+    <div>
+      <div style="font-size:0.78rem;color:var(--text-muted)">Mentoría · 12 semanas</div>
+      <div style="font-family:var(--font-serif);font-size:1.3rem;color:var(--plum)">$22,000 MXN</div>
+    </div>
+    <a href="sesion0.html" class="btn btn-primary" style="width:auto;padding:0.8rem 1.8rem;font-size:0.9rem">Agendar Sesión 0 →</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  © 2026 Mónica Mendoza · Soberanía Energética ·
+  <a href="index.html">← Hacer el test de Huella</a>
+</footer>
+
+<div id="toast" class="toast"></div>
+<script src="js/main.js"></script>
+<script>
+function openWA(msg) {
+  window.open('https://wa.me/' + CONFIG.WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+}
+</script>
+</body>
+</html>

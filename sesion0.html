@@ -3,99 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sesión 0 — Diagnóstico de Huella Energética · Mónica Mendoza</title>
-<meta name="description" content="1.5 horas de percepción en directo. Mónica lee tu campo energético y te da el mapa de lo que necesita moverse. $1,500 MXN.">
+<title>Sesión 0: Diagnóstico de Huella Energética — Mónica Mendoza</title>
+<meta name="description" content="1.5 horas de percepción en directo. Mónica lee tu campo energético y te da el mapa exacto de lo que necesita moverse. $1,500 MXN — abono a la mentoría completa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <style>
-  .hero{padding:2.5rem 0 1.5rem;text-align:center}
-  .price-tag{display:inline-flex;align-items:baseline;gap:0.3rem;margin:1.2rem 0 0.5rem}
-  .price-amount{font-family:var(--font-serif);font-size:3rem;font-weight:600;color:var(--plum)}
-  .price-currency{font-size:1.2rem;color:var(--text-muted)}
-  .what-item{display:flex;gap:0.8rem;margin-bottom:1rem;align-items:flex-start}
-  .what-icon{width:28px;height:28px;min-width:28px;border-radius:50%;background:rgba(200,133,106,0.15);display:flex;align-items:center;justify-content:center;font-size:0.85rem;margin-top:2px}
-  .what-text strong{display:block;font-size:0.9rem;color:var(--plum);font-weight:500;margin-bottom:0.1rem}
-  .what-text span{font-size:0.83rem;color:var(--text-muted);line-height:1.6}
-  .abono-box{background:linear-gradient(135deg,var(--plum),var(--plum-mid));border-radius:16px;padding:1.4rem;text-align:center;margin:1.5rem 0;color:white}
-  .abono-box h3{font-family:var(--font-serif);font-size:1.3rem;font-weight:300;margin-bottom:0.5rem}
-  .abono-box p{font-size:0.83rem;color:rgba(255,255,255,0.7);line-height:1.6}
+.hero{background:var(--plum);padding:4rem 1.5rem 3rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 70%,rgba(200,133,106,0.12) 0%,transparent 55%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid rgba(184,147,90,0.35);border-radius:100px;padding:0.35rem 1.1rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-light);font-weight:500;margin-bottom:1.2rem}
+.hero h1{font-family:var(--font-serif);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:300;color:white;line-height:1.1;margin-bottom:0.7rem}
+.hero h1 em{font-style:italic;color:var(--rose-light)}
+.hero-sub{font-size:0.95rem;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto 1.5rem;line-height:1.75}
+.hero-price{font-family:var(--font-serif);font-size:3rem;font-weight:600;color:white;margin-bottom:0.3rem}
+.hero-price-note{font-size:0.8rem;color:rgba(255,255,255,0.4);margin-bottom:2rem}
+.container-md{max-width:700px;margin:0 auto;padding:0 1.5rem}
+.section{padding:3.5rem 0}
+.section-alt{background:var(--cream-2)}
+.sec-label{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;display:block;margin-bottom:0.7rem}
+.sec-title{font-family:var(--font-serif);font-size:clamp(1.7rem,3vw,2.3rem);font-weight:300;color:var(--plum);line-height:1.15;margin-bottom:1rem}
+.sec-title em{font-style:italic;color:var(--rose)}
+
+/* ABONO BOX */
+.abono-box{background:linear-gradient(135deg,rgba(184,147,90,0.12),rgba(200,133,106,0.1));border:1px solid rgba(184,147,90,0.25);border-radius:16px;padding:1.5rem 1.8rem;margin:1.5rem 0;text-align:center}
+.abono-box h3{font-family:var(--font-serif);font-size:1.25rem;font-weight:400;color:var(--plum);margin-bottom:0.5rem}
+.abono-box p{font-size:0.87rem;color:var(--text-muted);line-height:1.7}
+.abono-box strong{color:var(--plum)}
+
+/* QUÉ PASA */
+.que-pasa{display:flex;flex-direction:column;gap:0.8rem;margin:1.5rem 0}
+.qp-item{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 1.2rem;background:white;border:1px solid rgba(184,147,90,0.15);border-radius:14px}
+.qp-num{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;color:var(--rose-light);line-height:1;flex-shrink:0;width:32px}
+.qp-info{}
+.qp-title{font-weight:500;font-size:0.92rem;color:var(--plum);margin-bottom:0.25rem}
+.qp-desc{font-size:0.83rem;color:var(--text-muted);line-height:1.65}
+
+/* FASES PREVIEW */
+.fases-preview{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.7rem;margin:1.5rem 0}
+@media(max-width:560px){.fases-preview{grid-template-columns:1fr}}
+.fase-prev{padding:1.1rem;border-radius:12px;text-align:center}
+.fase-prev.f1{background:rgba(61,43,61,0.06);border:1px solid rgba(61,43,61,0.12)}
+.fase-prev.f2{background:rgba(200,133,106,0.07);border:1px solid rgba(200,133,106,0.18)}
+.fase-prev.f3{background:rgba(184,147,90,0.07);border:1px solid rgba(184,147,90,0.18)}
+.fase-prev-num{font-family:var(--font-serif);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;margin-bottom:0.3rem}
+.fase-prev.f1 .fase-prev-num{color:var(--plum2)}
+.fase-prev.f2 .fase-prev-num{color:var(--rose)}
+.fase-prev.f3 .fase-prev-num{color:var(--gold)}
+.fase-prev-title{font-family:var(--font-serif);font-size:0.95rem;color:var(--plum);margin-bottom:0.25rem}
+.fase-prev-weeks{font-size:0.75rem;color:var(--text-muted)}
+
+/* PRECIO */
+.precio-box{background:white;border:1px solid rgba(184,147,90,0.2);border-radius:20px;padding:2.2rem;text-align:center;box-shadow:0 4px 28px rgba(61,43,61,0.06);max-width:420px;margin:0 auto}
+.precio-val{font-family:var(--font-serif);font-size:3.5rem;font-weight:600;color:var(--plum);line-height:1}
+.precio-note{font-size:0.85rem;color:var(--text-muted);margin:0.5rem 0 1.5rem;line-height:1.65}
+
+/* STICKY */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid rgba(184,147,90,0.18);padding:0.9rem 1.5rem;z-index:50;box-shadow:0 -4px 20px rgba(61,43,61,0.07)}
+.sticky-inner{max-width:700px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+@media(max-width:480px){.sticky-inner{flex-direction:column;gap:0.5rem}}
+body{padding-bottom:90px}
 </style>
 </head>
 <body>
-<div class="container">
 
-  <header class="site-header">
-    <img src="img/MB3.svg" class="site-logo" alt="Mónica Mendoza">
-    <span class="site-brand-name">Mónica Mendoza</span>
-  </header>
-
-  <div class="hero">
-    <div class="badge">✦ Sesión individual · Presencial o en línea</div>
-    <h1 style="margin:1rem 0 0.5rem">Sesión 0:<br><em>Diagnóstico de Huella Energética</em></h1>
-    <p style="font-size:1rem;max-width:460px;margin:0 auto">1.5 horas donde Mónica percibe en directo dónde está tu nudo energético y te da el mapa de lo que necesita moverse.</p>
-    <div class="price-tag">
-      <span class="price-currency">$</span>
-      <span class="price-amount">1,500</span>
-      <span class="price-currency">MXN</span>
-    </div>
+<div class="hero">
+  <div class="container-md">
+    <div class="hero-badge">✦ Sesión individual · Percepción en directo</div>
+    <h1>Sesión 0:<br><em>Diagnóstico de Huella</em><br>Energética</h1>
+    <p class="hero-sub">1.5 horas donde Mónica percibe en directo dónde está tu nudo energético y te entrega el mapa exacto de lo que necesita moverse.</p>
+    <div class="hero-price">$1,500 <span style="font-size:1.4rem;opacity:0.5">MXN</span></div>
+    <p class="hero-price-note">Presencial en Narvarte, CDMX · o en línea</p>
+    <a href="#precio" style="display:inline-block;background:linear-gradient(135deg,var(--rose),var(--gold));color:white;border-radius:100px;padding:1rem 2.5rem;font-family:var(--font-sans);font-size:1rem;font-weight:500;text-decoration:none;box-shadow:0 4px 24px rgba(200,133,106,0.4)">Agendar mi Sesión 0 →</a>
   </div>
-
-  <div class="abono-box">
-    <h3>Si decides continuar el mismo día…</h3>
-    <p>Los $1,500 de la Sesión 0 se abonan al proceso completo de 12 semanas ($22,000 MXN).<br>No pierdes nada — es tu primer paso hacia la mentoría completa.</p>
-  </div>
-
-  <h2 style="margin-bottom:1.2rem">¿Qué pasa en la Sesión 0?</h2>
-
-  <div class="what-item">
-    <div class="what-icon">🔍</div>
-    <div class="what-text">
-      <strong>Lectura de tu frecuencia actual</strong>
-      <span>Mónica detecta qué está emitiendo tu campo hoy: conflictos repetitivos, techos de cristal en ingresos, ansiedad o bloqueos de salud.</span>
-    </div>
-  </div>
-  <div class="what-item">
-    <div class="what-icon">🗺️</div>
-    <div class="what-text">
-      <strong>El Mapa de tu Huella</strong>
-      <span>Identificamos la huella que tu pasado dejó en tu energía y la contrastamos con lo que deseas manifestar.</span>
-    </div>
-  </div>
-  <div class="what-item">
-    <div class="what-icon">✦</div>
-    <div class="what-text">
-      <strong>Percepción en Directo</strong>
-      <span>A diferencia de otros procesos, aquí no hay suposiciones. Mónica lee el lenguaje de tu Huella y detecta dónde se detuvo el pulso de tu vida.</span>
-    </div>
-  </div>
-  <div class="what-item">
-    <div class="what-icon">🗓️</div>
-    <div class="what-text">
-      <strong>Modalidad flexible</strong>
-      <span>Presencial en Narvarte, CDMX, o en línea. Mañanas, tardes y algunos sábados.</span>
-    </div>
-  </div>
-
-  <div style="margin:2rem 0">
-    <!-- REEMPLAZAR href con GETNET_LINK_SESION0 cuando Mónica genere el link -->
-    <a href="GETNET_LINK_SESION0" class="btn btn-primary"
-       onclick="if(this.href.includes('GETNET')){event.preventDefault();openWA('Hola Mónica, quiero apartar mi Sesión 0 de Diagnóstico 🌿')}">
-      Apartar mi Sesión 0 — $1,500 MXN →
-    </a>
-    <p style="text-align:center;font-size:0.78rem;color:var(--text-muted);margin-top:0.7rem">O escríbeme directo y coordinamos fecha y horario</p>
-    <button class="btn btn-secondary" onclick="openWA('Hola Mónica, quiero saber más sobre la Sesión 0 🌿')" style="width:100%;margin-top:0.5rem">
-      Escribir a Mónica →
-    </button>
-  </div>
-
 </div>
 
-<footer class="site-footer">
-  © 2026 Mónica Mendoza · <a href="index.html">← Volver al diagnóstico</a>
-</footer>
+<!-- ABONO -->
+<div class="section">
+  <div class="container-md">
+    <div class="abono-box">
+      <h3>Si ese mismo día decides continuar…</h3>
+      <p>Los <strong>$1,500 MXN de la Sesión 0</strong> se abonan al proceso completo de mentoría de 12 semanas (<strong>$22,000 MXN</strong>).<br>No pierdes nada — es tu primer paso hacia la transformación completa.</p>
+    </div>
+  </div>
+</div>
 
+<!-- QUÉ PASA EN LA SESIÓN -->
+<div class="section section-alt">
+  <div class="container-md">
+    <span class="sec-label">La experiencia</span>
+    <h2 class="sec-title">¿Qué pasa en la <em>Sesión 0</em>?</h2>
+    <p style="font-size:0.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem">A diferencia de otros procesos, aquí no hay suposiciones. No perdemos tiempo reconstruyendo tu historia desde cero — Mónica lee directamente el lenguaje de tu Huella.</p>
+    <div class="que-pasa">
+      <div class="qp-item">
+        <div class="qp-num">01</div>
+        <div class="qp-info">
+          <div class="qp-title">Lectura de tu frecuencia actual</div>
+          <div class="qp-desc">Mónica detecta qué está emitiendo tu campo hoy: conflictos repetitivos, techos de cristal en ingresos, ansiedad o bloqueos de salud. Sin que tengas que explicarlo todo — ella lo percibe en directo.</div>
+        </div>
+      </div>
+      <div class="qp-item">
+        <div class="qp-num">02</div>
+        <div class="qp-info">
+          <div class="qp-title">El Mapa de tu Huella Energética</div>
+          <div class="qp-desc">Identificamos la huella que tu pasado dejó en tu energía y la contrastamos con lo que deseas manifestar. Recibes un mapa concreto — no una lista de tareas, sino la comprensión del origen real del patrón.</div>
+        </div>
+      </div>
+      <div class="qp-item">
+        <div class="qp-num">03</div>
+        <div class="qp-info">
+          <div class="qp-title">Primer movimiento energético</div>
+          <div class="qp-desc">Donde tú sientes un síntoma, Mónica detecta una energía atrapada esperando ser liberada. En la sesión hacemos el primer movimiento — el cambio no es una idea, es una sensación física que percibes en el momento.</div>
+        </div>
+      </div>
+      <div class="qp-item">
+        <div class="qp-num">04</div>
+        <div class="qp-info">
+          <div class="qp-title">Hoja de ruta personalizada</div>
+          <div class="qp-desc">Al terminar tienes claridad sobre cuáles son tus principales fugas, qué fase del proceso necesitas trabajar y cuál es el eje de tu transformación. Ya sea que continúes con Mónica o no, te llevas esa claridad.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTAL A LA MENTORÍA -->
+<div class="section">
+  <div class="container-md">
+    <span class="sec-label">Si quieres ir más profundo</span>
+    <h2 class="sec-title">La Sesión 0 es la puerta<br>al <em>Mapa de Reconfiguración</em></h2>
+    <p style="font-size:0.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem">La mentoría completa de 12 semanas está diseñada a 3 meses para ir al núcleo, moverlo y generar transformación tangible.</p>
+    <div class="fases-preview">
+      <div class="fase-prev f1">
+        <div class="fase-prev-num">Fase 1 · Sem 1–3</div>
+        <div class="fase-prev-title">Diagnóstico de Huella</div>
+        <div class="fase-prev-weeks">Escaneo de Resonancia</div>
+      </div>
+      <div class="fase-prev f2">
+        <div class="fase-prev-num">Fase 2 · Sem 4–8</div>
+        <div class="fase-prev-title">Liberación y Transmutación</div>
+        <div class="fase-prev-weeks">5 drenajes estructurales</div>
+      </div>
+      <div class="fase-prev f3">
+        <div class="fase-prev-num">Fase 3 · Sem 9–12</div>
+        <div class="fase-prev-title">Dirección y Creación</div>
+        <div class="fase-prev-weeks">Activación del poder creador</div>
+      </div>
+    </div>
+    <p style="font-size:0.85rem;color:var(--text-muted);text-align:center">
+      <a href="mentoria.html" style="color:var(--gold);text-decoration:none;font-weight:500">Ver el proceso completo de 12 semanas →</a>
+    </p>
+  </div>
+</div>
+
+<!-- MODALIDAD -->
+<div class="section section-alt">
+  <div class="container-md">
+    <span class="sec-label">Modalidad</span>
+    <h2 class="sec-title">Elige cómo <em>vivirla</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1.5rem">
+      <div style="background:white;border:1px solid rgba(184,147,90,0.15);border-radius:14px;padding:1.3rem;text-align:center">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem">🏛️</div>
+        <div style="font-weight:500;font-size:0.95rem;color:var(--plum);margin-bottom:0.4rem">Presencial</div>
+        <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.6">Colonia Narvarte<br>Ciudad de México<br>Espacio íntimo y contenido</div>
+      </div>
+      <div style="background:white;border:1px solid rgba(184,147,90,0.15);border-radius:14px;padding:1.3rem;text-align:center">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem">💻</div>
+        <div style="font-weight:500;font-size:0.95rem;color:var(--plum);margin-bottom:0.4rem">En línea</div>
+        <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.6">Videollamada<br>Desde donde estés<br>Igual de efectiva</div>
+      </div>
+    </div>
+    <p style="font-size:0.83rem;color:var(--text-muted);text-align:center;margin-top:1rem">Mañanas, tardes y algunos sábados — Mónica coordina el horario contigo directamente.</p>
+  </div>
+</div>
+
+<!-- PRECIO -->
+<div class="section" id="precio">
+  <div class="container-md">
+    <span class="sec-label" style="text-align:center;display:block">Inversión</span>
+    <h2 class="sec-title" style="text-align:center">Agenda tu <em>Sesión 0</em></h2>
+    <div class="precio-box">
+      <div style="margin-bottom:0.4rem">
+        <span style="font-size:1.2rem;color:var(--text-muted);font-family:var(--font-serif)">$</span>
+        <span class="precio-val">1,500</span>
+        <span style="font-size:1.2rem;color:var(--text-muted);font-family:var(--font-serif)"> MXN</span>
+      </div>
+      <p class="precio-note">1.5 horas · Percepción en directo<br>Presencial Narvarte o en línea<br>Abono a mentoría completa si decides continuar</p>
+      <a href="GETNET_LINK_SESION0" class="btn btn-primary" style="display:block;max-width:340px;margin:0 auto 0.8rem"
+         onclick="if(this.href.includes('GETNET')){event.preventDefault();openWA('Hola Monica, quiero agendar mi Sesión 0 de Diagnóstico de Huella Energética 🌿')}">
+        Apartar mi Sesión 0 →
+      </a>
+      <button onclick="openWA('Hola Monica, quiero saber más sobre la Sesión 0 🌿')" class="btn btn-secondary" style="width:100%;max-width:340px;margin:0 auto;display:block">Escribir a Mónica →</button>
+      <p style="font-size:0.75rem;color:var(--text-muted);margin-top:1rem">Efectivo · Transferencia · VISA / Mastercard / AMEX (+3.5%)</p>
+    </div>
+  </div>
+</div>
+
+<div class="sticky-cta">
+  <div class="sticky-inner">
+    <div>
+      <div style="font-size:0.78rem;color:var(--text-muted)">Sesión 0 · 1.5 horas</div>
+      <div style="font-family:var(--font-serif);font-size:1.3rem;color:var(--plum)">$1,500 MXN</div>
+    </div>
+    <a href="#precio" class="btn btn-primary" style="width:auto;padding:0.8rem 1.8rem;font-size:0.9rem">Agendar →</a>
+  </div>
+</div>
+
+<footer class="site-footer">© 2026 Mónica Mendoza · <a href="index.html">← Hacer el test de Huella</a> · <a href="mentoria.html">Ver mentoría completa</a></footer>
 <div id="toast" class="toast"></div>
 <script src="js/main.js"></script>
+<script>
+function openWA(msg){window.open('https://wa.me/'+CONFIG.WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank')}
+</script>
 </body>
 </html>
