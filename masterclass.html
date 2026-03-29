@@ -250,7 +250,7 @@ function registerMasterclass(){
   const firstName=name.split(' ')[0];
   const waClean=wa.replace(/[^0-9]/g,'');
   const waNum=waClean.startsWith('52')?waClean:'52'+waClean;
-  sendLeadToN8N({nombre:name,whatsapp:waNum,email:email,perfil:'masterclass',producto:'masterclass_3_pilares'});
+  sendLeadToN8N({nombre:name,whatsapp:waNum,email:email,perfil:'masterclass',producto:'masterclass_3_pilares'},CONFIG.N8N_WEBHOOK_MASTERCLASS);
   document.getElementById('form-wrap').style.display='none';
   document.getElementById('screen-success').style.display='block';
   document.getElementById('success-name').textContent=firstName;

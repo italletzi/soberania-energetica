@@ -4,8 +4,9 @@
 
 /* ── Configuración ──────────────────────────── */
 const CONFIG = {
-  // n8n webhook — REEMPLAZAR cuando esté configurado n8n
-  N8N_WEBHOOK: 'N8N_WEBHOOK_URL',
+  // n8n webhooks
+  N8N_WEBHOOK:            'https://italletzi.app.n8n.cloud/webhook/lead-quiz',
+  N8N_WEBHOOK_MASTERCLASS:'https://italletzi.app.n8n.cloud/webhook/lead-masterclass',
 
   // GetNet — REEMPLAZAR con links del panel de GetNet México
   GETNET_CURSO:   'GETNET_LINK_CURSO',
@@ -33,13 +34,10 @@ function showToast(msg) {
 }
 
 /* ── Enviar lead a n8n ──────────────────────── */
-async function sendLeadToN8N(data) {
-  if (CONFIG.N8N_WEBHOOK === 'N8N_WEBHOOK_URL') {
-    console.log('[DEV] Lead capturado (n8n no configurado):', data);
-    return;
-  }
+async function sendLeadToN8N(data, webhookUrl) {
+  const url = webhookUrl || CONFIG.N8N_WEBHOOK;
   try {
-    await fetch(CONFIG.N8N_WEBHOOK, {
+    await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
