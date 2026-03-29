@@ -13,7 +13,7 @@ const CONFIG = {
   GETNET_SESION0: 'GETNET_LINK_SESION0',
 
   // WhatsApp de Mónica — REEMPLAZAR con número real
-  WA_NUMBER: '521XXXXXXXXXX',
+  WA_NUMBER: '5215554312538',
 
   // Google Analytics — REEMPLAZAR con ID real (opcional)
   GA_ID: 'G-XXXXXXXXXX',
