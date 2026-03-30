@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <title>¿Sabes que tienes dones espirituales… pero tu vida aún no refleja tu verdadero poder? — Mónica Mendoza</title>
 <meta name="description" content="Descubre qué tipo de mago eres hoy, dónde se fuga tu energía y qué necesitas activar. Test gratuito de 3 minutos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +19,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden;padding-bottom:90px}
 
 /* ── HERO ── */
 .hero{min-height:100vh;background:var(--plum);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 1.5rem;text-align:center;position:relative;overflow:hidden}
@@ -36,7 +39,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);
 .scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,0.4),transparent);margin:0 auto}
 
 /* ── SHARED ── */
-.container{max-width:680px;margin:0 auto;padding:0 1.5rem}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
 .section{padding:5rem 0}
 .section-alt{background:var(--cream2)}
 .sec-label{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;display:block;margin-bottom:0.8rem}
@@ -89,8 +92,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);
 .bio-section{padding:5rem 0;background:var(--cream2)}
 .bio-inner{display:grid;grid-template-columns:1fr 2fr;gap:2.5rem;align-items:start}
 @media(max-width:560px){.bio-inner{grid-template-columns:1fr}}
-.bio-avatar{width:100%;aspect-ratio:3/4;background:var(--plum2);border-radius:16px;display:flex;align-items:center;justify-content:center;max-width:180px}
-.bio-avatar-initials{font-family:'Cormorant Garamond',serif;font-size:3rem;color:rgba(255,255,255,0.3);font-weight:300}
+@media(min-width:768px){.bio-inner{grid-template-columns:420px 1fr}}
+.bio-avatar{width:100%;aspect-ratio:3/4;border-radius:16px;object-fit:cover;object-position:top;max-width:180px;display:block}
+@media(min-width:768px){.bio-avatar{max-width:420px}}
 .bio-label{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.6rem;display:block}
 .bio-name{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--plum);margin-bottom:0.3rem}
 .bio-role{font-size:0.85rem;color:var(--rose);font-style:italic;margin-bottom:1.2rem}
@@ -113,6 +117,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);
 /* ── FOOTER ── */
 footer{text-align:center;padding:2rem 1rem;font-size:0.75rem;color:var(--muted);border-top:1px solid rgba(184,147,90,0.15)}
 footer a{color:var(--gold);text-decoration:none}
+
+/* ── STICKY ── */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid rgba(184,147,90,0.18);padding:0.9rem 1.5rem;z-index:50;box-shadow:0 -4px 20px rgba(61,43,61,0.07)}
+.sticky-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+@media(max-width:480px){.sticky-inner{flex-direction:column;gap:0.5rem}}
+.btn-sticky{display:inline-block;background:linear-gradient(135deg,var(--rose),var(--gold));color:white;text-decoration:none;border-radius:100px;padding:0.8rem 1.8rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:500;white-space:nowrap;transition:all 0.2s}
+.btn-sticky:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(200,133,106,0.4)}
 </style>
 </head>
 <body>
@@ -210,7 +221,7 @@ footer a{color:var(--gold);text-decoration:none}
   <div class="container">
     <div class="bio-inner reveal">
       <div>
-        <div class="bio-avatar"><span class="bio-avatar-initials">MI</span></div>
+        <img src="img/Monica cubo blanco.jpg" alt="Mónica Mendoza" class="bio-avatar">
       </div>
       <div>
         <span class="bio-label">Quién está detrás de este método</span>
@@ -237,6 +248,16 @@ footer a{color:var(--gold);text-decoration:none}
     </div>
   </div>
 </section>
+
+<div class="sticky-cta">
+  <div class="sticky-inner">
+    <div>
+      <div style="font-size:0.78rem;color:var(--muted)">El Mapa de tu Huella Energética · Test gratuito</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--plum)">3 minutos · Resultado inmediato</div>
+    </div>
+    <a href="index.html" class="btn-sticky">Hacer el test →</a>
+  </div>
+</div>
 
 <footer>© 2026 Mónica Mendoza · Soberanía Energética · <a href="index.html">Hacer el test</a></footer>
 

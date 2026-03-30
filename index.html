@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <title>Test: El Mapa de tu Huella y tu Poder de Mago — Mónica Mendoza</title>
 <meta name="description" content="Descubre tu perfil de Mago y dónde se te fuga la energía vital. Test gratuito de 6 preguntas con resultado personalizado.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,9 +24,9 @@
 
 /* RESULT */
 .result-huella-tag{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(200,133,106,0.1);border:1px solid rgba(200,133,106,0.25);border-radius:100px;padding:0.3rem 1rem;font-size:0.75rem;color:var(--rose);font-weight:500;margin-bottom:0.8rem}
-.result-profile{font-family:var(--font-serif);font-size:2.2rem;font-weight:600;color:var(--plum);line-height:1.1;margin-bottom:0.2rem}
+.result-profile{font-family:var(--font-serif);font-size:clamp(2.8rem,7vw,3.8rem);font-weight:600;color:var(--plum);line-height:1;margin-bottom:0.3rem}
 .result-huella-state{font-family:var(--font-serif);font-size:1.1rem;font-style:italic;color:var(--rose);margin-bottom:1.5rem}
-.result-lead{font-size:1rem;color:var(--plum);line-height:1.7;margin-bottom:0.5rem;font-family:var(--font-serif);font-weight:400}
+.result-lead{font-size:1.15rem;color:var(--plum);line-height:1.6;margin-bottom:0.6rem;font-family:var(--font-serif);font-weight:300;font-style:italic}
 .result-core{font-size:0.92rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.2rem}
 .result-arrow{font-family:var(--font-serif);font-size:0.95rem;font-style:italic;color:var(--plum2);margin-bottom:1rem}
 .causing-box{background:rgba(61,43,61,0.04);border-left:3px solid var(--rose-light);border-radius:0 12px 12px 0;padding:1rem 1.2rem;margin-bottom:1.2rem}
@@ -48,6 +51,12 @@
 .key-msg{background:rgba(184,147,90,0.06);border:1px solid rgba(184,147,90,0.18);border-radius:12px;padding:1rem 1.2rem;margin:1.2rem 0;font-size:0.88rem;color:var(--text-muted);line-height:1.7;text-align:center}
 .key-msg strong{color:var(--plum);display:block;margin-bottom:0.2rem}
 
+.next-step-list{list-style:none;margin:0.8rem 0;display:flex;flex-direction:column;gap:0.5rem;text-align:left}
+.next-step-list li{display:flex;gap:0.6rem;font-size:0.84rem;color:rgba(255,255,255,0.75);line-height:1.55}
+.next-step-list strong{color:white}
+.next-step-date{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:0.6rem 1rem;font-size:0.82rem;color:rgba(255,255,255,0.82);margin:0.8rem 0;text-align:center}
+.btn-mc-primary{display:block;background:linear-gradient(135deg,var(--rose-light),var(--gold-light));color:var(--plum);border:none;border-radius:100px;padding:0.95rem 2rem;font-family:var(--font-sans);font-size:0.95rem;font-weight:600;cursor:pointer;width:100%;margin-bottom:0.6rem;text-decoration:none;text-align:center;box-shadow:0 4px 20px rgba(255,255,255,0.12)}
+.btn-mc-secondary{display:block;background:transparent;border:1px solid rgba(255,255,255,0.28);color:rgba(255,255,255,0.82);border-radius:100px;padding:0.85rem 2rem;font-family:var(--font-sans);font-size:0.88rem;cursor:pointer;width:100%;margin-bottom:0.8rem;text-decoration:none;text-align:center}
 .time-note{text-align:center;font-size:0.78rem;color:var(--text-muted);margin-bottom:1.8rem}
 .divider-ornament{text-align:center;color:var(--gold-light);letter-spacing:0.5em;font-size:0.9rem;margin:1rem 0}
 .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.5rem}
@@ -138,20 +147,23 @@
     </div>
     <div class="next-step-box">
       <div class="next-step-label">Tu siguiente paso</div>
-      <h3 id="r-next-title">Aprender a ordenar tu energía</h3>
-      <p id="r-next-desc">En la masterclass te enseño cómo funciona realmente tu energía, por qué tu cuerpo puede sabotear tu manifestación, y cómo empezar a alinearlo con lo que quieres crear.</p>
-      <button class="btn btn-whatsapp" onclick="openWAResult()" style="width:100%;margin-bottom:0.8rem">
-        Hablar con Mónica por WhatsApp
-      </button>
-      <a href="masterclass.html" style="display:block;color:rgba(255,255,255,0.6);font-size:0.82rem;text-decoration:none">Ir a la Masterclass gratuita →</a>
-      <div class="cta-box-quote">"No necesitas más información. Necesitas ordenar tu energía."</div>
+      <h3 style="font-size:1.1rem;font-weight:400;color:white;margin-bottom:0.8rem;line-height:1.3">Entiende por qué tu energía no fluye como debería</h3>
+      <ul class="next-step-list">
+        <li><span style="color:var(--gold-light);flex-shrink:0">✦</span><span>Por qué tu <strong>cuerpo retiene</strong> lo que conscientemente quieres soltar</span></li>
+        <li><span style="color:var(--gold-light);flex-shrink:0">✦</span><span>Cómo tu <strong>huella energética específica</strong> sabotea tu manifestación sin que lo notes</span></li>
+        <li><span style="color:var(--gold-light);flex-shrink:0">✦</span><span>El <strong>primer paso concreto</strong> para empezar a moverlo</span></li>
+      </ul>
+      <div class="next-step-date">📅 21 de abril · 8:00 PM · EN VIVO · Gratuita</div>
+      <a href="masterclass.html" class="btn-mc-primary">Reservar mi lugar →</a>
+      <button class="btn-mc-secondary" onclick="openWAResult()">Hablar con Mónica por WhatsApp</button>
+      <div class="cta-box-quote">"No necesitas más información. Necesitas integración."</div>
     </div>
   </div>
 
 </div>
 
 <div id="toast" class="toast"></div>
-<footer class="site-footer">© 2026 Mónica Mendoza · Soberanía Energética · <a href="landing.html">← Volver</a></footer>
+<footer class="site-footer">© 2026 Mónica Mendoza · Huella Energética · <a href="landing.html">← Volver</a></footer>
 
 <script src="js/main.js"></script>
 <script>
@@ -223,45 +235,37 @@ const RESULTS = {
     profile:'Mago Intuitivo',
     state:'Huella Energética: Saturada',
     tag:'✦ Mago Intuitivo',
-    lead:'Eres profundamente perceptiva. Sientes todo… pero no todo es tuyo.',
-    core:'Tu campo energético está abierto, sin filtros. Y eso te está drenando.',
+    lead:'Eres profundamente perceptiva. Sientes todo… pero <strong>no todo es tuyo.</strong>',
+    core:'Tu campo energético está abierto, sin filtros. Y eso te está <strong>drenando.</strong>',
     arrow:'👉 Tu problema no es falta de poder. Es exceso de carga.',
     causing:['Cansancio constante sin explicación aparente','Dificultad para decidir con claridad','Sensación de estar "invadida" por las emociones ajenas'],
-    next_title:'Aprender a sellar tu energía y habitar tu centro',
-    next_desc:'En la masterclass aprenderás a identificar tus fugas energéticas y a sellar tu campo para dejar de drenarte. Porque mientras tu energía se fugue, no hay manifestación que se sostenga.',
   },
   B:{
     profile:'Mago Determinado',
     state:'Huella Energética: Forzada',
     tag:'✦ Mago Determinado',
-    lead:'Tienes fuerza, enfoque y voluntad. Pero estás operando desde el esfuerzo… no desde la energía alineada.',
-    core:'Estás empujando la vida en lugar de dirigirla.',
+    lead:'Tienes fuerza, enfoque y voluntad. Pero estás operando desde el <strong>esfuerzo</strong>… no desde la energía alineada.',
+    core:'Estás <strong>empujando la vida</strong> en lugar de dirigirla.',
     arrow:'👉 Estás agotando tu energía vital sin darte cuenta.',
     causing:['Agotamiento que no se va con descanso','Frustración constante ante los frenos','Resultados inestables a pesar del esfuerzo'],
-    next_title:'Aprender a dirigir tu energía sin desgastarte',
-    next_desc:'En la masterclass aprenderás por qué tu cuerpo entra en resistencia y cómo redirigir tu energía para que la vida deje de ponerte frenos.',
   },
   C:{
     profile:'Mago Visionario',
     state:'Huella Energética: Dispersa',
     tag:'✦ Mago Visionario',
-    lead:'Tu mente crea, imagina y proyecta. Pero tu energía no se sostiene.',
-    core:'Tienes visión… pero no estructura energética.',
+    lead:'Tu mente crea, imagina y proyecta. Pero tu energía <strong>no se sostiene.</strong>',
+    core:'Tienes visión… pero <strong>no estructura energética.</strong>',
     arrow:'👉 Estás perdiendo poder por falta de centro.',
     causing:['Proyectos inconclusos que se acumulan','Falta de claridad sobre hacia dónde ir','Sensación de potencial desperdiciado'],
-    next_title:'Construir una base energética que materialice tu visión',
-    next_desc:'En la masterclass aprenderás a construir la estructura interna que sostiene tus ideas y las aterriza en resultados reales.',
   },
   D:{
     profile:'Mago Alquimista',
     state:'Huella Energética: Cargada',
     tag:'✦ Mago Alquimista',
-    lead:'Has trabajado en ti. Has entendido mucho. Pero tu cuerpo aún guarda memorias activas.',
-    core:'No es mental. Es energético.',
+    lead:'Has trabajado en ti. Has entendido mucho. Pero tu cuerpo <strong>aún guarda memorias activas.</strong>',
+    core:'<strong>No es mental.</strong> Es energético.',
     arrow:'👉 Tu transformación está esperando una liberación más profunda.',
     causing:['Sensación de bloqueo que vuelve una y otra vez','Repetición de patrones que ya creías superados','Dificultad para avanzar aunque lo entiendes todo'],
-    next_title:'Liberar la energía atrapada en tu cuerpo',
-    next_desc:'En la masterclass aprenderás cómo las memorias del cuerpo sabotean la manifestación y cómo empezar a liberarlas con herramientas concretas.',
   },
 };
 
@@ -329,11 +333,9 @@ function submitLead(){
   document.getElementById('r-huella-tag').textContent=result.tag;
   document.getElementById('r-profile').textContent=result.profile;
   document.getElementById('r-state').textContent=result.state;
-  document.getElementById('r-lead').textContent=result.lead;
-  document.getElementById('r-core').textContent=result.core;
+  document.getElementById('r-lead').innerHTML=result.lead;
+  document.getElementById('r-core').innerHTML=result.core;
   document.getElementById('r-arrow').textContent=result.arrow;
-  document.getElementById('r-next-title').textContent=result.next_title;
-  document.getElementById('r-next-desc').textContent=result.next_desc;
 
   const causing=document.getElementById('r-causing');causing.innerHTML='';
   result.causing.forEach(function(c){

@@ -5,7 +5,7 @@
   --cream:#FAF6F0; --cream-2:#F4EBE0;
   --rose:#C8856A; --rose-light:#E8B09A;
   --gold:#B8935A; --gold-light:#D4B483;
-  --plum:#3D2B3D; --plum-mid:#5C3D5C;
+  --plum:#3D2B3D; --plum-mid:#5C3D5C; --plum2:#5C3D5C;
   --text:#2A1F2A; --text-muted:#6B5B6B;
   --white:#FFFFFF;
   --font-serif:'Cormorant Garamond',Georgia,serif;
@@ -24,7 +24,8 @@ h3{font-size:clamp(1.2rem,2.5vw,1.7rem)}
 p{font-size:0.95rem;color:var(--text-muted);line-height:1.75}
 em{font-style:italic;color:var(--rose)}
 strong{font-weight:500;color:var(--text)}
-.container{max-width:680px;margin:0 auto;padding:0 1.25rem}
+.container{max-width:1200px;margin:0 auto;padding:0 1.25rem}
+@media(min-width:1280px){.container{padding:0 2.5rem}}
 .section{padding:4rem 0}
 .card{background:var(--white);border:1px solid rgba(184,147,90,0.18);border-radius:var(--radius-lg);padding:2.5rem 2.8rem;box-shadow:var(--shadow-card)}
 @media(max-width:520px){.card{padding:1.6rem 1.25rem;border-radius:var(--radius-md)}}
