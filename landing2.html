@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huella Energética — Mónica Mendoza</title>
+  <meta name="description" content="Descubre exactamente dónde se te fuga la energía y por qué no puedes cambiar lo que ya entiendes. Test gratuito con resultado inmediato.">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    :root {
+      --ciruela: #3D2B3D;
+      --terracota: #C8856A;
+      --dorado: #B8935A;
+      --crema: #FAF6F0;
+      --crema-dark: #F0E8DC;
+      --texto: #2A1A2A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--crema);
+      color: var(--texto);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════════
+       HERO — MOBILE FIRST, DESKTOP SPLIT
+    ══════════════════════════════════ */
+    .hero {
+      background: var(--ciruela);
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 20% 30%, rgba(200,133,106,0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(184,147,90,0.08) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Ornamento geométrico fondo */
+    .hero-ornament {
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      opacity: 0.05;
+      z-index: 1;
+    }
+
+    /* Layout dos columnas en desktop */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr 45%;
+        align-items: stretch;
+        min-height: 100vh;
+        max-width: 100%;
+      }
+    }
+
+    /* Columna de copy */
+    .hero-copy {
+      padding: 52px 24px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero-copy {
+        padding: 80px 60px 80px 6%;
+        max-width: 660px;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .hero-copy {
+        padding: 80px 80px 80px 8%;
+        max-width: 720px;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(184,147,90,0.4);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--dorado);
+      font-weight: 600;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 6vw, 68px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--crema);
+      margin-bottom: 20px;
+    }
+
+    .hero-sub {
+      font-size: clamp(14px, 1.8vw, 18px);
+      font-weight: 300;
+      color: rgba(250,246,240,0.65);
+      margin-bottom: 16px;
+      line-height: 1.7;
+      max-width: 480px;
+    }
+
+    /* Entregable concreto — lo que se llevan */
+    .hero-deliverable {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 28px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(184,147,90,0.2);
+      border-radius: 12px;
+      max-width: 480px;
+    }
+
+    .hero-deliverable-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(250,246,240,0.72);
+      line-height: 1.5;
+    }
+
+    .hero-deliverable-item span.mark {
+      color: var(--dorado);
+      flex-shrink: 0;
+      font-size: 12px;
+      margin-top: 1px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--dorado);
+      color: var(--crema);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 17px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      width: fit-content;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(184,147,90,0.35);
+    }
+
+    .hero-meta {
+      margin-bottom: 16px;
+      font-size: 11px;
+      color: rgba(250,246,240,0.5);
+      letter-spacing: 2px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .counter-widget {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(184,147,90,0.18);
+      padding: 12px 20px;
+      border-radius: 100px;
+      width: fit-content;
+    }
+
+    .counter-avatars { display: flex; }
+    .counter-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--ciruela);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: white; font-weight: 500;
+      margin-left: -8px;
+    }
+    .counter-avatar:first-child { margin-left: 0; background: var(--terracota); }
+    .counter-avatar:nth-child(2) { background: #8B6B8B; }
+    .counter-avatar:nth-child(3) { background: var(--dorado); }
+    .counter-text { font-size: 13px; color: rgba(250,246,240,0.65); }
+
+    /* Columna de foto */
+    .hero-photo-col {
+      display: none;
+      position: relative;
+      overflow: hidden;
+      align-self: stretch;
+    }
+
+    @media (min-width: 900px) {
+      .hero-photo-col {
+        display: block;
+      }
+    }
+
+    .hero-photo-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      /* Vignette suave para fusionar con el fondo ciruela */
+      mask-image: linear-gradient(to right, transparent 0%, black 15%, black 100%),
+                  linear-gradient(to top, transparent 0%, black 8%);
+      mask-composite: intersect;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 100%),
+                          linear-gradient(to top, transparent 0%, black 8%);
+      -webkit-mask-composite: destination-in;
+    }
+
+    /* Overlay para integrar foto con bg */
+    .hero-photo-col::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 80px;
+      background: linear-gradient(to right, var(--ciruela), transparent);
+      z-index: 2;
+    }
+
+    .hero-photo-col::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 120px;
+      background: linear-gradient(to top, var(--ciruela), transparent);
+      z-index: 2;
+    }
+
+    /* ══════════════════════════════════
+       SHARED
+    ══════════════════════════════════ */
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .page-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ══════════════════════════════════
+       SECCIÓN 1 — IDENTIFICACIÓN
+    ══════════════════════════════════ */
+    .sec-identificacion {
+      padding: 80px 24px;
+      background: var(--crema);
+    }
+
+    .sec-identificacion h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--ciruela);
+      margin-bottom: 40px;
+      max-width: 680px;
+    }
+
+    /* En desktop los pain blocks van en grid 2 columnas */
+    .pain-blocks {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 48px;
+      max-width: 680px;
+    }
+
+    @media (min-width: 900px) {
+      .sec-identificacion-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 60px;
+        align-items: start;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .sec-identificacion h2 { grid-column: 1 / -1; }
+      .pain-blocks { max-width: none; margin-bottom: 0; }
+      .callout-col { padding-top: 8px; }
+    }
+
+    .pain-block {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(61,43,61,0.08);
+    }
+    .pain-block:last-child { border-bottom: none; }
+
+    .pain-block h3 {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ciruela);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .pain-block p {
+      font-size: 15px;
+      font-weight: 300;
+      color: #5a4a5a;
+      line-height: 1.75;
+    }
+
+    .callout {
+      background: var(--ciruela);
+      color: var(--crema);
+      padding: 28px 32px;
+      border-radius: 4px;
+      margin: 40px 0 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(17px, 2.2vw, 21px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    @media (min-width: 900px) {
+      .callout { margin: 0; }
+    }
+
+    .callout-signature {
+      display: block;
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(250,246,240,0.45);
+      font-style: normal;
+      letter-spacing: 1px;
+    }
+
+    /* ══════════════════════════════════
+       SECCIÓN 2 — EL DATO (95%)
+       Movida DESPUÉS de testimonios
+    ══════════════════════════════════ */
+    .sec-dato {
+      background: var(--crema-dark);
+      padding: 80px 24px;
+    }
+
+    .dato-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 900px) {
+      .dato-inner {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 40px 60px;
+        align-items: center;
+      }
+    }
+
+    .dato-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(80px, 14vw, 120px);
+      font-weight: 300;
+      color: var(--ciruela);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .dato-number-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: #5a4a5a;
+      max-width: 220px;
+      line-height: 1.45;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 900px) {
+      .dato-number-sub { margin-top: 12px; }
+    }
+
+    .dato-text-col {}
+
+    .dato-p {
+      font-size: 16px;
+      font-weight: 300;
+      color: #5a4a5a;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .dato-callout {
+      background: white;
+      border-left: 3px solid var(--dorado);
+      border-radius: 0 8px 8px 0;
+      padding: 22px 26px;
+      font-size: 19px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ciruela);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════
+       SECCIÓN 3 — EL TEST (DARK)
+    ══════════════════════════════════ */
+    .sec-test {
+      background: #1E0F1E;
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sec-test::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(200,133,106,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .sec-test-inner {
+      max-width: 620px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .sec-test-eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .sec-test h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 5vw, 54px);
+      font-weight: 300;
+      color: var(--crema);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .sec-test-intro {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(250,246,240,0.55);
+      line-height: 1.7;
+      margin-bottom: 44px;
+    }
+
+    .test-reveal-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 44px;
+      text-align: left;
+    }
+
+    .test-reveal-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(184,147,90,0.14);
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .test-reveal-card-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+    .test-reveal-card-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--crema);
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+
+    .test-reveal-card-text {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(250,246,240,0.5);
+      line-height: 1.65;
+    }
+
+    /* Qué te llevas exactamente */
+    .test-deliverable {
+      background: rgba(184,147,90,0.08);
+      border: 1px solid rgba(184,147,90,0.2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 36px;
+      text-align: left;
+    }
+
+    .test-deliverable-title {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .test-deliverable-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .test-deliverable-item {
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(250,246,240,0.75);
+      line-height: 1.5;
+    }
+
+    .test-deliverable-item::before {
+      content: '✦';
+      color: var(--dorado);
+      flex-shrink: 0;
+      font-size: 11px;
+      margin-top: 1px;
+    }
+
+    .cta-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--dorado);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 18px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(184,147,90,0.4);
+    }
+
+    /* ══════════════════════════════════
+       SECCIÓN 4 — MOCKUP
+    ══════════════════════════════════ */
+    .sec-mockup {
+      padding: 60px 24px;
+      background: var(--crema-dark);
+      text-align: center;
+    }
+    @media (min-width: 900px) {
+      .sec-mockup-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: left;
+      }
+      .result-mockup { margin: 0; }
+      .mockup-context { padding-top: 8px; }
+    }
+
+    .result-mockup {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 60px rgba(61,43,61,0.15);
+      margin: 0 auto 20px;
+      max-width: 360px;
+      border: 1px solid rgba(61,43,61,0.08);
+    }
+
+    .mockup-header {
+      background: var(--ciruela);
+      padding: 20px 24px;
+      text-align: center;
+    }
+
+    .mockup-badge {
+      display: inline-block;
+      background: rgba(184,147,90,0.2);
+      border: 1px solid var(--dorado);
+      color: var(--dorado);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+
+    .mockup-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--crema);
+      margin-bottom: 4px;
+    }
+
+    .mockup-subtitle {
+      font-size: 12px;
+      color: rgba(250,246,240,0.5);
+      font-style: italic;
+    }
+
+    .mockup-body { padding: 20px; }
+
+    .mockup-letters {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .mockup-letter {
+      background: var(--crema);
+      border-radius: 8px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+
+    .mockup-letter.active { background: var(--ciruela); }
+
+    .mockup-letter-key {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--ciruela);
+      display: block;
+    }
+
+    .mockup-letter.active .mockup-letter-key { color: var(--dorado); }
+    .mockup-letter-count { font-size: 10px; color: var(--terracota); }
+
+    .mockup-desc {
+      font-size: 12px;
+      color: #5a4a5a;
+      line-height: 1.65;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    .mockup-cta {
+      display: block;
+      width: 100%;
+      background: var(--dorado);
+      color: white;
+      text-align: center;
+      padding: 13px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .mockup-label {
+      font-size: 12px;
+      color: #a09080;
+      font-style: italic;
+    }
+
+    /* ══════════════════════════════════
+       SECCIÓN 5 — TESTIMONIOS
+    ══════════════════════════════════ */
+    .sec-testimonios {
+      padding: 80px 24px;
+      background: var(--crema);
+    }
+
+    .testimonios-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .testimonios-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 300;
+      color: var(--ciruela);
+    }
+
+    @media (min-width: 900px) {
+      .testimonios-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+    }
+
+    .testimonio {
+      background: white;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      border-left: 3px solid var(--terracota);
+      box-shadow: 0 2px 20px rgba(61,43,61,0.05);
+    }
+
+    @media (min-width: 900px) {
+      .testimonio { margin-bottom: 0; }
+    }
+
+    .testimonio-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-style: italic;
+      color: var(--ciruela);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .testimonio-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonio-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--ciruela);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      color: var(--dorado);
+      flex-shrink: 0;
+    }
+
+    .testimonio-name { font-size: 13px; font-weight: 500; color: var(--ciruela); }
+    .testimonio-meta { font-size: 11px; color: var(--terracota); }
+
+    /* ══════════════════════════════════
+       SECCIÓN 6 — MASTERCLASS
+    ══════════════════════════════════ */
+    .sec-masterclass {
+      padding: 80px 24px;
+      background: var(--ciruela);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sec-masterclass::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 30%, rgba(200,133,106,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .sec-masterclass-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      text-align: center;
+    }
+
+    .sec-masterclass .section-label { color: rgba(184,147,90,0.7); }
+
+    .sec-masterclass h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 300;
+      color: var(--crema);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .sec-masterclass-p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(250,246,240,0.6);
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .sec-masterclass-p em {
+      font-style: italic;
+      color: var(--terracota);
+    }
+
+    .masterclass-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 36px;
+      text-align: left;
+    }
+
+    .masterclass-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: rgba(250,246,240,0.8);
+      line-height: 1.65;
+    }
+
+    .masterclass-list li .ornament {
+      color: var(--dorado);
+      flex-shrink: 0;
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    .mc-date-block {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(184,147,90,0.25);
+      border-radius: 12px;
+      padding: 16px 24px;
+      margin-bottom: 28px;
+      font-size: 15px;
+      color: rgba(250,246,240,0.85);
+      display: inline-block;
+    }
+
+    .cta-masterclass {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--dorado);
+      color: var(--crema);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 18px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-masterclass:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(184,147,90,0.4);
+    }
+
+    /* ══════════════════════════════════
+       CTA FINAL
+    ══════════════════════════════════ */
+    .sec-cta-final {
+      background: var(--crema-dark);
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .sec-cta-final-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 300;
+      color: var(--ciruela);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--dorado);
+      letter-spacing: 1px;
+      margin-top: 6px;
+      display: block;
+    }
+
+    .cta-final-p {
+      font-size: 16px;
+      font-weight: 300;
+      color: #5a4a5a;
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+
+    .cta-final-meta {
+      font-size: 12px;
+      color: rgba(61,43,61,0.3);
+      letter-spacing: 0.8px;
+      margin-top: 18px;
+    }
+
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    .footer {
+      background: var(--ciruela);
+      border-top: 1px solid rgba(184,147,90,0.1);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .footer p { font-size: 12px; color: rgba(250,246,240,0.3); }
+    .footer a { color: rgba(250,246,240,0.5); text-decoration: none; }
+
+    /* ══════════════════════════════════
+       STICKY BAR
+    ══════════════════════════════════ */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--ciruela);
+      border-top: 2px solid rgba(184,147,90,0.35);
+      padding: 14px 24px;
+      box-shadow: 0 -4px 24px rgba(61,43,61,0.25);
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .sticky-bar.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sticky-info { flex: 1; }
+
+    .sticky-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(250,246,240,0.55);
+      display: block;
+    }
+
+    .sticky-detail {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: var(--crema);
+      font-weight: 500;
+    }
+    @media (min-width: 900px) {
+      .sticky-btn { font-size: 16px; padding: 14px 36px; }
+      .sticky-bar { padding: 16px 40px; }
+      .sticky-inner { max-width: 1100px; margin: 0 auto; }
+    }
+
+    .sticky-btn {
+      background: var(--dorado);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 11px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .sticky-title { display: none; }
+      .sticky-detail-full { display: none; }
+      .sticky-detail-mobile { display: flex; flex-direction: column; gap: 2px; }
+      .sticky-detail-mobile span { font-size: 11px; color: rgba(250,246,240,0.75); line-height: 1.4; white-space: nowrap; }
+      .sticky-bar { padding: 10px 16px; gap: 12px; align-items: center; }
+      .sticky-info { flex: 1; min-width: 0; }
+      .sticky-btn { font-size: 14px; padding: 12px 20px; flex-shrink: 0; }
+    }
+
+
+    /* ── TESTIMONIO HEADLINE ── */
+    .testimonio-headline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--terracota);
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    /* ── CTA PILLS ── */
+    .cta-pills {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .cta-pill {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--dorado);
+      background: rgba(184,147,90,0.1);
+      border: 1px solid rgba(184,147,90,0.25);
+      padding: 9px 20px;
+      border-radius: 100px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── MOCKUP CONTEXT (desktop) ── */
+    .mockup-context {
+      display: none;
+    }
+    @media (min-width: 900px) {
+      .mockup-context {
+        display: block;
+      }
+    }
+    .mockup-context-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 300;
+      color: var(--ciruela);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .mockup-context-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: #5a4a5a;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+
+    /* ── NUEVO MOCKUP RESULTADO ── */
+    @keyframes rmn-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .result-mockup-new {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 60px rgba(61,43,61,0.14);
+      max-width: 340px;
+      margin: 0 auto;
+      border: 1px solid rgba(61,43,61,0.08);
+    }
+
+    @media (min-width: 900px) {
+      .result-mockup-new { margin: 0; max-width: 360px; }
+    }
+
+    .rmn-header {
+      background: #2B1A38;
+      padding: 20px 20px 18px;
+      text-align: center;
+      position: relative;
+    }
+
+    .rmn-eyebrow {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(250,246,240,0.45);
+      margin-bottom: 10px;
+    }
+
+    .rmn-icon { margin: 0 auto 10px; display: flex; justify-content: center; }
+
+    .rmn-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: #FAF6F0;
+      line-height: 1.05;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .rmn-state {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: rgba(250,246,240,0.5);
+    }
+
+    .rmn-gauge-row {
+      background: white;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(61,43,61,0.06);
+    }
+
+    .rmn-legend { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+
+    .rmn-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+    }
+
+    .rmn-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .rmn-lbl { color: #3D2B3D; flex: 1; font-family: 'Cormorant Garamond', serif; font-size: 12px; }
+    .rmn-val { color: #9a8a9a; font-size: 10px; font-family: 'DM Sans', sans-serif; white-space: nowrap; }
+
+    .rmn-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: #3D2B3D;
+      line-height: 1.6;
+      padding: 12px 16px 8px;
+      border-left: 2px solid #B8935A;
+      margin: 12px 16px 8px;
+    }
+
+    .rmn-causing-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #C8856A;
+      font-weight: 500;
+      padding: 0 16px 8px;
+    }
+
+    .rmn-causing-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #6B5B6B;
+      line-height: 1.5;
+      padding: 5px 16px;
+    }
+
+    .rmn-dot-sm {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .rmn-cta {
+      display: block;
+      background: linear-gradient(135deg, #C8856A, #B8935A);
+      color: white;
+      text-align: center;
+      padding: 13px;
+      margin: 12px 16px 16px;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+
+
+    @media (min-width: 900px) {
+      .hero-deliverable { display: flex; }
+      .hero-cta { font-size: 18px; padding: 20px 48px; }
+      .hero h1 { font-size: clamp(36px, 4.5vw, 58px); }
+    }
+
+    /* ── LINK DISCRETO AL MOCKUP ── */
+    .hero-result-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--terracota);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+      letter-spacing: 0.3px;
+    }
+    .hero-result-link:hover { opacity: 1; }
+
+
+    /* ── MOBILE BR — saltos de línea solo en mobile ── */
+    .mobile-br { display: none; }
+    @media (max-width: 899px) {
+      .mobile-br { display: block; }
+      .pain-block h3 { font-size: 17px; line-height: 1.25; }
+    }
+
+    /* ── STICKY DETAIL versiones ── */
+    .sticky-detail-short { display: none; }
+    .sticky-detail-mobile { display: none; }
+    .sticky-detail-full { display: inline; }
+    @media (max-width: 600px) {
+      .sticky-detail-full { display: none; }
+      .sticky-detail-short { display: inline; font-size: 11px; white-space: nowrap; }
+    }
+
+    /* ══════════════════════════════════
+       ANIMACIONES
+    ══════════════════════════════════ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2136962077101861');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2136962077101861&ev=PageView&noscript=1"/></noscript>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "w4h0ddtit6");
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <svg class="hero-ornament" width="500" height="500" viewBox="0 0 500 500" fill="none">
+      <circle cx="250" cy="250" r="248" stroke="#B8935A" stroke-width="0.5"/>
+      <circle cx="250" cy="250" r="185" stroke="#B8935A" stroke-width="0.5"/>
+      <circle cx="250" cy="250" r="120" stroke="#C8856A" stroke-width="0.4"/>
+      <line x1="2" y1="250" x2="498" y2="250" stroke="#B8935A" stroke-width="0.4"/>
+      <line x1="250" y1="2" x2="250" y2="498" stroke="#B8935A" stroke-width="0.4"/>
+      <line x1="74" y1="74" x2="426" y2="426" stroke="#B8935A" stroke-width="0.3"/>
+      <line x1="426" y1="74" x2="74" y2="426" stroke="#B8935A" stroke-width="0.3"/>
+    </svg>
+
+    <div class="hero-grid">
+      <!-- Columna copy -->
+      <div class="hero-copy">
+
+        <div class="hero-badge">
+          ✦ GRATUITO · 3 MINUTOS · RESULTADO INMEDIATO
+        </div>
+
+        <h1>¿Sabes exactamente<br>qué te pasa…<br>pero no puedes<br>cambiarlo?</h1>
+
+        <p class="hero-sub">
+          Descubre tu <strong style="color:var(--terracota);font-weight:500">Huella Energética</strong>: exactamente dónde se te fuga la energía y por qué la terapia convencional no lo resuelve.
+        </p>
+
+        <!-- Entregable concreto — lo que se llevan -->
+        <div class="hero-deliverable">
+          <div class="hero-deliverable-item">
+            <span class="mark">✦</span>
+            <span>Tu perfil energético exacto — cuál de los 4 patrones opera en ti</span>
+          </div>
+          <div class="hero-deliverable-item">
+            <span class="mark">✦</span>
+            <span>Por qué no puedes cambiar lo que ya entiendes — la razón concreta</span>
+          </div>
+          <div class="hero-deliverable-item">
+            <span class="mark">✦</span>
+            <span>Tu primer paso específico para empezar a moverlo</span>
+          </div>
+        </div>
+
+
+        <a href="index.html" class="hero-cta" id="hero-btn">
+          Descubre dónde se fuga tu energía →
+        </a>
+
+        <a href="#resultado-preview" class="hero-result-link">
+          ¿Cómo se ve el resultado? ↓
+        </a>
+
+
+                <div class="counter-widget">
+          <div class="counter-avatars">
+            <div class="counter-avatar">A</div>
+            <div class="counter-avatar">K</div>
+            <div class="counter-avatar">F</div>
+          </div>
+          <p class="counter-text">Únete a quienes ya mapearon su energía</p>
+        </div>
+      </div>
+
+      <!-- Columna foto (solo desktop) -->
+      <div class="hero-photo-col">
+        <img src="img/monica-cubo.jpg"
+             alt="Mónica Mendoza — Mentora en transformación energética"
+             loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SECCIÓN 1 — IDENTIFICACIÓN ═══════════ -->
+  <section class="sec-identificacion">
+    <div class="sec-identificacion-inner">
+      <h2 class="fade-in">¿Te suena familiar?</h2>
+
+      <div class="pain-blocks fade-in">
+        <div class="pain-block">
+          <h3>Sabes que deberías poner<br class="mobile-br"> un límite. Y no puedes.</h3>
+          <p>Entiendes perfectamente por qué deberías decir que no. Pero cuando llega el momento, algo en ti cede.</p>
+        </div>
+        <div class="pain-block">
+          <h3>Sales de terapia con claridad.<br class="mobile-br"> A la semana estás igual.</h3>
+          <p>Puedes explicar tu patrón con lujo de detalle. Pero reaccionar distinto… eso es otra cosa.</p>
+        </div>
+        <div class="pain-block">
+          <h3>Te agota gente que<br class="mobile-br"> "no debería" agotarte.</h3>
+          <p>Tu jefe. Tu pareja. Conversaciones que otros sobrellevan sin drama. Y tú sales drenada, como si algo en ti se vaciara.</p>
+        </div>
+        <div class="pain-block">
+          <h3>Empiezas con fuerza.<br class="mobile-br"> Luego algo en ti lo frena.</h3>
+          <p>No es falta de disciplina. No es falta de ganas. Es algo más profundo que opera sin que lo notes.</p>
+        </div>
+      </div>
+
+      <div class="callout-col fade-in">
+        <div class="callout">
+          No es que no lo hayas intentado.<br>
+          Es que has estado trabajando en la mente<br>
+          de un problema que vive en el cuerpo.
+          <span class="callout-signature">— Mónica Mendoza</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SECCIÓN 3 — EL TEST ═══════════ -->
+  <section class="sec-test">
+    <div class="sec-test-inner fade-in">
+      <span class="sec-test-eyebrow">No es un test de personalidad</span>
+      <h2>Es un mapa de dónde<br>exactamente se está yendo<br>tu energía.</h2>
+      <p class="sec-test-intro">En 3 minutos vas a ver algo que probablemente nunca has podido nombrar con precisión:</p>
+
+      <div class="test-reveal-cards">
+        <div class="test-reveal-card">
+          <span class="test-reveal-card-icon">📍</span>
+          <div>
+            <div class="test-reveal-card-title">En qué momento específico tu energía colapsa</div>
+            <div class="test-reveal-card-text">No cuándo te cansas en general — sino el patrón exacto que se activa cuando intentas cambiar algo.</div>
+          </div>
+        </div>
+        <div class="test-reveal-card">
+          <span class="test-reveal-card-icon">📍</span>
+          <div>
+            <div class="test-reveal-card-title">Por qué lo que ya sabes no cambia cómo reaccionas</div>
+            <div class="test-reveal-card-text">La razón concreta por la que la comprensión mental no mueve el cuerpo.</div>
+          </div>
+        </div>
+        <div class="test-reveal-card">
+          <span class="test-reveal-card-icon">📍</span>
+          <div>
+            <div class="test-reveal-card-title">Qué tipo de huella dejaron tus experiencias</div>
+            <div class="test-reveal-card-text">Y cómo esa huella opera sin que lo notes en situaciones de presión, confrontación o exposición.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Qué te llevas exactamente -->
+      <div class="test-deliverable">
+        <div class="test-deliverable-title">Al terminar recibes</div>
+        <div class="test-deliverable-items">
+          <div class="test-deliverable-item">Tu perfil exacto de los 4 tipos de Mago — con descripción específica de tu patrón</div>
+          <div class="test-deliverable-item">Las 4 consecuencias concretas de ese patrón en tu vida real</div>
+          <div class="test-deliverable-item">Un primer paso accionable — no genérico, personalizado a tu huella</div>
+          <div class="test-deliverable-item">Acceso a la masterclass gratuita del 14 de abril</div>
+        </div>
+      </div>
+
+      <a href="index.html" class="cta-gold">Quiero ver mi mapa energético →</a>
+    </div>
+  </section>
+
+  <!-- ═══════════ SECCIÓN 4 — MOCKUP ═══════════ -->
+  <section class="sec-mockup fade-in" id="resultado-preview">
+    <div class="sec-mockup-inner">
+
+      <!-- Preview del resultado nuevo -->
+      <div class="result-mockup-new">
+
+        <!-- Header oscuro con ícono -->
+        <div class="rmn-header">
+          <span class="rmn-eyebrow">Tu diagnóstico energético</span>
+          <div class="rmn-icon">
+            <svg width="72" height="72" viewBox="0 0 72 72">
+              <circle cx="36" cy="36" r="29" fill="none" stroke="rgba(250,246,240,0.18)" stroke-width="0.9"/>
+              <circle cx="36" cy="36" r="29" fill="none" stroke="#8B6BA0" stroke-width="0.7"
+                stroke-dasharray="6 4" style="transform-origin:36px 36px;animation:rmn-spin 18s linear infinite"/>
+              <polygon points="36,14 61,52 11,52" fill="none" stroke="#8B6BA0" stroke-width="1.1"/>
+              <polygon points="36,58 11,30 61,30" fill="none" stroke="#8B6BA0" stroke-width="0.75" opacity="0.45"/>
+              <circle cx="36" cy="36" r="7" fill="none" stroke="#C8856A" stroke-width="0.9"/>
+              <circle cx="36" cy="36" r="2.5" fill="#8B6BA0"/>
+              <line x1="36" y1="7" x2="36" y2="29" stroke="#8B6BA0" stroke-width="0.5" opacity="0.3"/>
+              <line x1="36" y1="43" x2="36" y2="65" stroke="#8B6BA0" stroke-width="0.5" opacity="0.3"/>
+              <line x1="7" y1="36" x2="29" y2="36" stroke="#8B6BA0" stroke-width="0.5" opacity="0.3"/>
+              <line x1="43" y1="36" x2="65" y2="36" stroke="#8B6BA0" stroke-width="0.5" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="rmn-name">Maga Alquimista</div>
+          <div class="rmn-state">Huella Energética: Cargada</div>
+        </div>
+
+        <!-- Gauge + leyenda -->
+        <div class="rmn-gauge-row">
+          <svg width="90" height="90" viewBox="0 0 90 90" style="flex-shrink:0">
+            <circle cx="45" cy="45" r="34" fill="none" stroke="rgba(61,43,61,0.1)" stroke-width="8"/>
+            <circle cx="45" cy="45" r="34" fill="none" stroke="#8B6BA0" stroke-width="8"
+              stroke-linecap="round" stroke-dasharray="213.6" stroke-dashoffset="32"
+              transform="rotate(-90 45 45)"/>
+            <circle cx="45" cy="45" r="34" fill="none" stroke="#C8856A" stroke-width="3"
+              stroke-linecap="round" stroke-dasharray="213.6" stroke-dashoffset="192"
+              transform="rotate(-90 45 45)" opacity="0.45"/>
+            <text x="45" y="41" text-anchor="middle" font-family="Georgia,serif" font-size="17" fill="#3D2B3D" font-weight="400">85%</text>
+            <text x="45" y="54" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="#9a8a9a">carga activa</text>
+          </svg>
+          <div class="rmn-legend">
+            <div class="rmn-legend-item"><span class="rmn-dot" style="background:#8B6BA0"></span><span class="rmn-lbl">Memorias activas</span><span class="rmn-val">Muy alta</span></div>
+            <div class="rmn-legend-item"><span class="rmn-dot" style="background:#C8856A"></span><span class="rmn-lbl">Carga ancestral</span><span class="rmn-val">Presente</span></div>
+            <div class="rmn-legend-item"><span class="rmn-dot" style="background:rgba(61,43,61,0.15)"></span><span class="rmn-lbl">Liberación lograda</span><span class="rmn-val">Parcial</span></div>
+          </div>
+        </div>
+
+        <!-- Lead -->
+        <div class="rmn-lead">Has trabajado en ti. Has entendido mucho. Pero tu cuerpo aún guarda memorias activas que interrumpen tu energía.</div>
+
+        <!-- Causing -->
+        <div class="rmn-causing-title">Lo que esto provoca en tu vida</div>
+        <div class="rmn-causing-item"><span class="rmn-dot-sm" style="background:#8B6BA0"></span>Cada vez que estás cerca de un cambio real, algo externo te interrumpe</div>
+        <div class="rmn-causing-item"><span class="rmn-dot-sm" style="background:#8B6BA0"></span>Reconoces en ti patrones que también viste en tu madre o tu linaje</div>
+
+        <!-- CTA -->
+        <a href="index.html" class="rmn-cta">Ver mi resultado real →</a>
+
+      </div>
+
+      <!-- Contexto desktop -->
+      <div class="mockup-context">
+        <div class="mockup-context-title">Así se ve tu resultado — específico, no genérico</div>
+        <div class="mockup-context-body">Cada perfil tiene su propio diagnóstico: el patrón exacto, las 4 consecuencias en tu vida real y un primer paso concreto para empezar a moverlo.</div>
+        <a href="index.html" class="cta-gold" style="font-size:15px;padding:16px 32px;">Hacer el test gratuito →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════ SECCIÓN 5 — TESTIMONIOS ═══════════ -->
+  <section class="sec-testimonios">
+    <div class="testimonios-header fade-in">
+      <h2>Lo que descubrieron</h2>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio fade-in">
+        <p class="testimonio-headline">La mujer que complementó 4 años de terapia con un resultado en 3 semanas</p>
+        <p class="testimonio-text">"Llevaba 4 años en terapia y podía explicar perfectamente por qué me dejaba invadir. Con Mónica entendí dónde vivía eso en mi cuerpo. En tres semanas puse límites que no había podido poner en años."</p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar">A</div>
+          <div>
+            <p class="testimonio-name">Adriana</p>
+            <p class="testimonio-meta">40 años</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonio fade-in">
+        <p class="testimonio-headline">La mujer que por fin pudo nombrar cuándo exactamente se saboteaba</p>
+        <p class="testimonio-text">"Siempre supe que yo misma me saboteaba. Lo que no sabía era cuándo exactamente ni cómo parar. El test me lo mostró con una precisión que me sorprendió."</p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar">K</div>
+          <div>
+            <p class="testimonio-name">Karen</p>
+            <p class="testimonio-meta">29 años</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonio fade-in">
+        <p class="testimonio-headline">La mujer que salió del loop de "consciente pero atascada"</p>
+        <p class="testimonio-text">"Salí de años de desarrollo personal sintiéndome muy consciente y muy atascada al mismo tiempo. Esto fue diferente. Por primera vez entendí qué estaba haciendo mal."</p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar">F</div>
+          <div>
+            <p class="testimonio-name">Fernanda</p>
+            <p class="testimonio-meta">35 años</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SECCIÓN 2 — EL DATO (movido aquí para dar autoridad antes del CTA) ═══════════ -->
+  <section class="sec-dato">
+    <div class="dato-inner fade-in">
+      <div>
+        <div class="dato-number">95%</div>
+        <div class="dato-number-sub">de efectividad en más de 2,000 personas atendidas en 7 años</div>
+      </div>
+      <div class="dato-text-col">
+        <p class="dato-p">En 7 años atendiendo a más de 2,000 personas, Mónica identificó algo que la terapia convencional no resuelve:</p>
+        <div class="dato-callout">
+          Puedes pasar años entendiendo por qué reaccionas como reaccionas.<br>
+          Pero si no transformas la memoria que vive en tu cuerpo,<br>
+          seguirás reaccionando igual.<br><br>
+          La mente aprende. El cuerpo recuerda. Y el cuerpo siempre gana.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SECCIÓN 6 — MASTERCLASS ═══════════ -->
+  <section class="sec-masterclass">
+    <div class="sec-masterclass-inner fade-in">
+      <span class="section-label">El siguiente paso</span>
+      <h2>Saber dónde está el problema<br>es el inicio.</h2>
+      <p class="sec-masterclass-p">En la masterclass gratuita <em>Los 3 Pilares del Mago Moderno</em> Mónica te muestra cómo empezar a transformarlo:</p>
+
+      <ul class="masterclass-list">
+        <li><span class="ornament">✦</span><span>Por qué tu cuerpo retiene lo que conscientemente quieres soltar</span></li>
+        <li><span class="ornament">✦</span><span>Cómo tu huella energética específica opera bajo presión real</span></li>
+        <li><span class="ornament">✦</span><span>El primer movimiento concreto para empezar a cambiar la raíz</span></li>
+      </ul>
+
+      <div class="mc-date-block">
+        📅 14 de abril · 8:00 PM · En vivo por Google Meet · Gratuita
+      </div>
+
+      <a href="masterclass.html" class="cta-masterclass">Reservar mi lugar en la masterclass →</a>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA FINAL ═══════════ -->
+  <section class="sec-cta-final">
+    <div class="sec-cta-final-inner fade-in">
+      <div class="stats-row">
+        <div class="stat-item">
+          <span class="stat-number">7 años</span>
+          <span class="stat-label">de experiencia</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2,000+</span>
+          <span class="stat-label">atendidas</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">95%</span>
+          <span class="stat-label">de efectividad</span>
+        </div>
+      </div>
+
+      <p class="cta-final-p">Si llevas tiempo sabiendo lo que te pasa pero sin poder cambiarlo de fondo… este test es para ti.</p>
+
+      <a href="index.html" class="cta-gold">Descubre dónde se fuga tu energía →</a>
+
+      <div class="cta-pills">
+        <span class="cta-pill">✦ Gratuito</span>
+        <span class="cta-pill">✦ Sin registro previo</span>
+        <span class="cta-pill">✦ Resultado inmediato</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <p>© 2026 Mónica Mendoza · Huella Energética · <a href="masterclass.html">Masterclass gratuita</a> · <a href="aviso-privacidad.html">Aviso de privacidad</a></p>
+  </footer>
+
+  <!-- ═══════════ STICKY ═══════════ -->
+  <div class="sticky-bar" id="sticky">
+  <div style="max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+    <div class="sticky-info">
+      <span class="sticky-title">Huella Energética · Mónica Mendoza</span>
+      <span class="sticky-detail">TEST GRATUITO · 3 MINUTOS · RESULTADO INMEDIATO</span>
+    </div>
+    <a href="index.html" class="sticky-btn">Hacer el test →</a>
+  </div>
+  </div>
+
+  <script>
+    // Intersection Observer — fade-in
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(el) {
+        if (el.isIntersecting) el.target.classList.add('visible');
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+    // Sticky bar — aparece después de 300px de scroll para no tapar el CTA del hero
+    const sticky = document.getElementById('sticky');
+    let stickyEnabled = false;
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        sticky.classList.add('visible');
+      } else {
+        sticky.classList.remove('visible');
+      }
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
