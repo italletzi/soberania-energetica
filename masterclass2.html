@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masterclass Trauma y Magia · Huella Energética</title>
+  <meta name="description" content="Masterclass gratuita en vivo. El problema no es tu trauma. Es que tu cuerpo todavía no sabe que terminó. 7 de mayo · 8pm CDMX">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2136962077101861');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2136962077101861&ev=PageView&noscript=1"/></noscript>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "w4h0ddtit6");
+  </script>
+
+  <style>
+    /* ─── TOKENS ─── */
+    :root {
+      --ciruela: #3D2B3D;
+      --ciruela-dark: #2B1A38;
+      --terracota: #C8856A;
+      --dorado: #B8935A;
+      --crema: #FAF6F0;
+      --crema-dark: #F0E8DC;
+      --blanco: #FFFFFF;
+      --texto: #2C1F2C;
+      --texto-suave: #6B5B6B;
+
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'DM Sans', sans-serif;
+
+      --radius: 100px;
+      --radius-card: 16px;
+      --transition: 0.3s ease;
+    }
+
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--crema);
+      color: var(--texto);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── STICKY BAR ─── */
+    .sticky-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--ciruela-dark);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transform: translateY(-100%);
+      transition: transform 0.4s ease;
+    }
+    .sticky-bar.visible { transform: translateY(0); }
+    .sticky-bar-text {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+      font-weight: 300;
+    }
+    .sticky-bar-text strong { color: var(--dorado); font-weight: 500; }
+    .sticky-bar .btn-sticky {
+      background: var(--dorado);
+      color: var(--blanco);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: var(--radius);
+      white-space: nowrap;
+      transition: opacity var(--transition);
+      flex-shrink: 0;
+    }
+    .sticky-bar .btn-sticky:hover { opacity: 0.85; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--ciruela-dark);
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(184,147,90,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      padding: 100px 60px 80px 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--dorado);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4.5vw, 58px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--crema);
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--terracota);
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(250,246,240,0.7);
+      line-height: 1.7;
+      max-width: 440px;
+      margin-bottom: 40px;
+    }
+
+    .hero-fecha {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(250,246,240,0.5);
+      font-weight: 300;
+      margin-top: 16px;
+    }
+    .hero-fecha span { color: var(--dorado); }
+
+    .hero-imagen {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-imagen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(15%);
+    }
+    .hero-imagen::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--ciruela-dark) 0%, transparent 30%),
+                  linear-gradient(to top, var(--ciruela-dark) 0%, transparent 20%);
+    }
+
+    /* ─── BOTONES ─── */
+    .btn-primary {
+      display: inline-block;
+      background: var(--dorado);
+      color: var(--blanco);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(184,147,90,0.35);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--crema);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(250,246,240,0.3);
+      transition: border-color var(--transition), background var(--transition);
+      cursor: pointer;
+    }
+    .btn-outline:hover {
+      border-color: var(--dorado);
+      background: rgba(184,147,90,0.08);
+    }
+
+    /* ─── SECCIÓN REGALO ─── */
+    .regalo {
+      background: var(--ciruela);
+      padding: 40px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .regalo-icon {
+      font-size: 24px;
+    }
+    .regalo-text {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: rgba(250,246,240,0.8);
+      font-weight: 300;
+    }
+    .regalo-text strong {
+      color: var(--dorado);
+      font-weight: 500;
+    }
+
+    /* ─── SECCIONES GENERALES ─── */
+    section { padding: 96px 80px; }
+
+    .section-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--terracota);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--ciruela);
+      margin-bottom: 20px;
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--terracota);
+    }
+
+    .section-body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--texto-suave);
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    /* ─── APRENDERÁS ─── */
+    .aprenderas {
+      background: var(--crema);
+    }
+
+    .aprenderas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 56px;
+    }
+
+    .aprende-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 32px;
+      background: var(--blanco);
+      border-radius: var(--radius-card);
+      border: 1px solid rgba(61,43,61,0.06);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .aprende-item:hover {
+      box-shadow: 0 8px 40px rgba(61,43,61,0.08);
+      transform: translateY(-2px);
+    }
+
+    .aprende-arrow {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--dorado);
+      font-weight: 300;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .aprende-content h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--ciruela);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .aprende-content p {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--texto-suave);
+      line-height: 1.65;
+    }
+
+    .aprenderas-cta {
+      margin-top: 56px;
+      text-align: center;
+    }
+
+    /* ─── PARA QUIÉN ─── */
+    .para-quien {
+      background: var(--crema-dark);
+    }
+
+    .para-quien-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .checklist {
+      list-style: none;
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(61,43,61,0.1);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--texto);
+      line-height: 1.6;
+    }
+    .checklist li:first-child { border-top: 1px solid rgba(61,43,61,0.1); }
+
+    .check-icon {
+      color: var(--dorado);
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .para-quien-visual {
+      position: relative;
+    }
+
+    .para-quien-quote {
+      background: var(--ciruela-dark);
+      border-radius: var(--radius-card);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .para-quien-quote::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      font-family: var(--font-display);
+      font-size: 180px;
+      color: rgba(184,147,90,0.12);
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    .para-quien-quote p {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--crema);
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    .para-quien-quote .quote-autor {
+      margin-top: 24px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── SEMBLANZA ─── */
+    .semblanza {
+      background: var(--crema);
+    }
+
+    .semblanza-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .semblanza-foto {
+      position: relative;
+    }
+
+    .semblanza-foto img {
+      width: 100%;
+      border-radius: var(--radius-card);
+      object-fit: cover;
+      aspect-ratio: 4/5;
+    }
+
+    .semblanza-numero {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--ciruela);
+      border-radius: var(--radius-card);
+      padding: 28px 32px;
+      text-align: center;
+    }
+
+    .semblanza-numero .num {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--dorado);
+      line-height: 1;
+    }
+
+    .semblanza-numero .num-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(250,246,240,0.7);
+      margin-top: 4px;
+    }
+
+    .semblanza-copy h2 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 3.5vw, 52px);
+      font-weight: 300;
+      color: var(--ciruela);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .semblanza-copy .cargo {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--terracota);
+      letter-spacing: 0.05em;
+      margin-bottom: 32px;
+    }
+
+    .semblanza-copy p {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--texto-suave);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--ciruela);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--texto-suave);
+    }
+
+    /* ─── FORMULARIO ─── */
+    .formulario-section {
+      background: var(--ciruela-dark);
+      padding: 96px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .formulario-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,147,90,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .formulario-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .formulario-copy .section-title {
+      color: var(--crema);
+    }
+    .formulario-copy .section-title em { color: var(--terracota); }
+
+    .formulario-copy .section-body {
+      color: rgba(250,246,240,0.65);
+    }
+
+    .evento-detalles {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .evento-detalle {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: rgba(250,246,240,0.65);
+      font-weight: 300;
+    }
+
+    .evento-detalle-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(184,147,90,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .evento-detalle strong {
+      color: var(--dorado);
+      font-weight: 500;
+    }
+
+    /* ─── FORM CARD ─── */
+    .form-card {
+      background: var(--blanco);
+      border-radius: 24px;
+      padding: 48px 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .form-pill {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--terracota);
+      background: rgba(200,133,106,0.08);
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(200,133,106,0.2);
+    }
+
+    .form-card h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--ciruela);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .form-card .form-sub {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--texto-suave);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--texto-suave);
+      margin-bottom: 6px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid rgba(61,43,61,0.15);
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--texto);
+      background: var(--crema);
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .form-group input:focus {
+      border-color: var(--dorado);
+      background: var(--blanco);
+    }
+
+    .form-group input::placeholder {
+      color: rgba(61,43,61,0.35);
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 8px;
+      padding: 17px;
+      font-size: 16px;
+    }
+
+    .form-nota {
+      margin-top: 16px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--texto-suave);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* ─── CTA FINAL ─── */
+    .cta-final {
+      background: var(--crema-dark);
+      text-align: center;
+      padding: 96px 80px;
+    }
+
+    .cta-final .section-title {
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .cta-final .section-body {
+      max-width: 480px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .cta-final-fecha {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--texto-suave);
+      margin-top: 16px;
+    }
+    .cta-final-fecha strong { color: var(--ciruela); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ciruela-dark);
+      padding: 40px 80px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--dorado);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    footer p {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(250,246,240,0.4);
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    footer a {
+      color: rgba(250,246,240,0.6);
+      text-decoration: underline;
+    }
+
+    /* ─── THANK YOU (hidden by default) ─── */
+    #thank-you {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--ciruela-dark);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px;
+    }
+
+    #thank-you.visible { display: flex; }
+
+    .ty-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 24px;
+    }
+
+    .ty-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 300;
+      color: var(--crema);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      max-width: 600px;
+    }
+    .ty-title em { font-style: italic; color: var(--terracota); }
+
+    .ty-sub {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(250,246,240,0.65);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 48px;
+    }
+
+    .ty-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .ty-actions a {
+      width: 100%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--blanco);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.3);
+    }
+
+    .ty-nota {
+      margin-top: 32px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(250,246,240,0.4);
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      section { padding: 64px 24px; }
+
+      .sticky-bar { padding: 10px 16px; }
+      .sticky-bar-text { font-size: 11px; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-imagen {
+        height: 280px;
+        order: -1;
+      }
+
+      .hero-copy {
+        padding: 40px 24px 56px;
+      }
+
+      .hero-sub { font-size: 15px; }
+
+      .regalo { padding: 28px 24px; text-align: center; }
+
+      .aprenderas-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .aprende-item { padding: 24px 20px; }
+
+      .para-quien-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .semblanza-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .semblanza-numero {
+        bottom: -10px;
+        right: -10px;
+        padding: 20px 24px;
+      }
+
+      .semblanza-numero .num { font-size: 40px; }
+
+      .formulario-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .form-card { padding: 32px 24px; }
+
+      .stats-row { gap: 24px; }
+
+      .cta-final { padding: 64px 24px; }
+
+      footer { padding: 32px 24px; }
+
+      .ty-actions { max-width: 100%; }
+    }
+
+    /* ─── ANIMACIONES ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY BAR -->
+  <div class="sticky-bar" id="stickyBar">
+    <p class="sticky-bar-text">Masterclass gratuita · <strong>7 mayo · 8pm CDMX</strong></p>
+    <a href="#registro" class="btn-sticky">Reserva tu lugar</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">Masterclass gratuita en vivo</p>
+      <h1>
+        El problema<br>
+        no es tu trauma.<br>
+        Es que tu cuerpo<br>
+        <em>todavía no sabe<br>que terminó.</em>
+      </h1>
+      <p class="hero-sub">
+        Aprende a liberar la energía que el trauma tiene secuestrada en tu cuerpo — y empieza a crear desde un sistema que ya no opera en modo supervivencia.
+      </p>
+      <a href="#registro" class="btn-primary">Reserva tu lugar gratis</a>
+      <p class="hero-fecha">
+        <span>7 de mayo · 8pm CDMX</span> · Google Meet · Cupo limitado
+      </p>
+    </div>
+    <div class="hero-imagen">
+      <img src="img/monica-cubo.jpg" alt="Mónica Mendoza" loading="eager">
+    </div>
+  </section>
+
+  <!-- REGALO QUIZ -->
+  <div class="regalo">
+    <span class="regalo-icon">✦</span>
+    <p class="regalo-text">
+      Al registrarte recibes gratis: <strong>Test — Descubre tu perfil de Mago Energético</strong>
+    </p>
+    <span class="regalo-icon">✦</span>
+  </div>
+
+  <!-- APRENDERÁS -->
+  <section class="aprenderas">
+    <div class="fade-up">
+      <p class="section-eyebrow">Lo que vas a descubrir</p>
+      <h2 class="section-title">En esta masterclass <em>en vivo</em> aprenderás:</h2>
+    </div>
+
+    <div class="aprenderas-grid">
+      <div class="aprende-item fade-up">
+        <span class="aprende-arrow">→</span>
+        <div class="aprende-content">
+          <h3>Por qué sigues reaccionando igual</h3>
+          <p>Aunque ya entiendes lo que te pasó. Qué tiene que ver tu cuerpo con eso — y por qué la comprensión intelectual no es suficiente para cambiar el patrón.</p>
+        </div>
+      </div>
+
+      <div class="aprende-item fade-up">
+        <span class="aprende-arrow">→</span>
+        <div class="aprende-content">
+          <h3>Cómo el trauma bloquea tu energía de creación</h3>
+          <p>No como metáfora — como información física almacenada que tu sistema nervioso sigue ejecutando, incluso cuando conscientemente ya quieres otra cosa.</p>
+        </div>
+      </div>
+
+      <div class="aprende-item fade-up">
+        <span class="aprende-arrow">→</span>
+        <div class="aprende-content">
+          <h3>Por qué la terapia convencional no ha sido suficiente</h3>
+          <p>El trauma no se borra platicando. La diferencia entre procesar el dolor con palabras y liberarlo desde el cuerpo — y por qué esa diferencia lo cambia todo.</p>
+        </div>
+      </div>
+
+      <div class="aprende-item fade-up">
+        <span class="aprende-arrow">→</span>
+        <div class="aprende-content">
+          <h3>El mecanismo exacto de la repetición</h3>
+          <p>Por qué tu vida sigue pareciéndose a sí misma — y cómo interrumpir ese patrón desde la raíz, no desde la voluntad.</p>
+        </div>
+      </div>
+
+      <div class="aprende-item fade-up" style="grid-column: 1 / -1;">
+        <span class="aprende-arrow">→</span>
+        <div class="aprende-content">
+          <h3>El primer paso del método de Mónica</h3>
+          <p>La tecnología somática exacta para convertir esa energía estancada en capacidad real de manifestación. Sin rituales vacíos. Sin bypassing espiritual.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="aprenderas-cta fade-up">
+      <a href="#registro" class="btn-primary">Quiero mi lugar gratis</a>
+    </div>
+  </section>
+
+  <!-- PARA QUIÉN ES -->
+  <section class="para-quien">
+    <div class="para-quien-inner">
+      <div class="fade-up">
+        <p class="section-eyebrow">¿Es para ti?</p>
+        <h2 class="section-title">Esto es para ti <em>si...</em></h2>
+
+        <ul class="checklist">
+          <li>
+            <span class="check-icon">✦</span>
+            Ya has hecho terapia, cursos o trabajo personal — y aun así sientes que hay un techo invisible que no puedes romper.
+          </li>
+          <li>
+            <span class="check-icon">✦</span>
+            Entiendes de dónde vienen tus patrones, pero tu cuerpo sigue reaccionando como si el peligro no hubiera pasado.
+          </li>
+          <li>
+            <span class="check-icon">✦</span>
+            Sientes que tienes que empujar la vida para que algo suceda, mientras ves a otros fluir con aparente facilidad.
+          </li>
+          <li>
+            <span class="check-icon">✦</span>
+            Llevas años trabajando en ti misma y estás lista para dejar de analizar el problema y empezar a disolverlo.
+          </li>
+          <li>
+            <span class="check-icon">✦</span>
+            Quieres resultados que se sostengan — no alivio temporal.
+          </li>
+        </ul>
+      </div>
+
+      <div class="para-quien-visual fade-up">
+        <div class="para-quien-quote">
+          <p>"Ya lo entiendes. Pero sigues reaccionando igual. Eso no es falta de voluntad — es que tu energía sigue operando desde una memoria que tu cuerpo aún no ha soltado."</p>
+          <p class="quote-autor">— Mónica Mendoza · Huella Energética</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEMBLANZA -->
+  <section class="semblanza">
+    <div class="semblanza-inner">
+      <div class="semblanza-foto fade-up">
+        <img src="img/monica-rosa.jpg" alt="Mónica Mendoza">
+        <div class="semblanza-numero">
+          <div class="num">2,000+</div>
+          <div class="num-label">personas acompañadas</div>
+        </div>
+      </div>
+
+      <div class="semblanza-copy fade-up">
+        <p class="section-eyebrow">Quién imparte esta masterclass</p>
+        <h2>Mónica Mendoza</h2>
+        <p class="cargo">Mentora de transformación energética · Especialista en Huella Energética</p>
+
+        <p>Mi especialidad no es escucharte hablar del dolor. Es entrar en tu laboratorio biológico para transformar ese trauma en energía de manifestación.</p>
+
+        <p>En 7 años de práctica he acompañado a más de 2,000 personas a liberar los nudos energéticos que ningún proceso convencional había podido mover. El 95% percibe cambios desde la primera sesión. El cambio sostenido llega a su punto más alto a los 3 meses.</p>
+
+        <p>Lo que hoy te pesa puede convertirse en el motor que transforma tu realidad.</p>
+
+        <div class="stats-row">
+          <div class="stat">
+            <span class="stat-num">7</span>
+            <span class="stat-label">años de práctica</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">95%</span>
+            <span class="stat-label">efectividad</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">1ª</span>
+            <span class="stat-label">sesión con resultados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO DE REGISTRO -->
+  <section class="formulario-section" id="registro">
+    <div class="formulario-inner">
+      <div class="formulario-copy fade-up">
+        <p class="section-eyebrow" style="color: var(--terracota);">Reserva tu lugar</p>
+        <h2 class="section-title">Tu energía no está perdida.<br><em>Está esperando que la liberes.</em></h2>
+        <p class="section-body">Únete a esta masterclass gratuita y descubre por qué todo el trabajo que ya hiciste no ha sido suficiente — y qué sí funciona.</p>
+
+        <div class="evento-detalles">
+          <div class="evento-detalle">
+            <span class="evento-detalle-icon">📅</span>
+            <span>Jueves <strong>7 de mayo, 2026</strong></span>
+          </div>
+          <div class="evento-detalle">
+            <span class="evento-detalle-icon">🕗</span>
+            <span><strong>8:00 pm</strong> Ciudad de México (CDMX)</span>
+          </div>
+          <div class="evento-detalle">
+            <span class="evento-detalle-icon">💻</span>
+            <span>En vivo por <strong>Google Meet</strong></span>
+          </div>
+          <div class="evento-detalle">
+            <span class="evento-detalle-icon">✦</span>
+            <span>Regalo: <strong>Test Mago Energético</strong> al registrarte</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up">
+        <div class="form-card">
+          <div class="form-pills">
+            <span class="form-pill">Gratuita</span>
+            <span class="form-pill">En vivo</span>
+            <span class="form-pill">Cupo limitado</span>
+          </div>
+          <h3>Reserva tu lugar ahora</h3>
+          <p class="form-sub">Recibirás el link de Google Meet y tu test de regalo por email.</p>
+
+          <form id="registroForm">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="telefono">WhatsApp (opcional)</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+52 55 0000 0000">
+            </div>
+            <button type="submit" class="btn-primary form-submit">Reserva mi lugar gratis →</button>
+          </form>
+
+          <p class="form-nota">Es gratuita. Sin compromisos. Solo necesitas tu lugar y conexión a internet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="fade-up">
+      <p class="section-eyebrow" style="text-align:center;">7 de mayo · 8pm CDMX</p>
+      <h2 class="section-title">Cada día que pasa bajo el mando del trauma<br>es un día que le restas a tu capacidad de creación.</h2>
+      <p class="section-body">El universo tiene la mesa puesta. Pero no puede entregársela a un sistema configurado para la escasez.</p>
+      <a href="#registro" class="btn-primary">Reserva mi lugar gratis →</a>
+      <p class="cta-final-fecha"><strong>Masterclass gratuita</strong> · Jueves 7 de mayo · 8pm CDMX · Google Meet</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Huella Energética</div>
+    <p>
+      © 2026 Huella Energética · <a href="mailto:monica@huellaenergetica.net">monica@huellaenergetica.net</a><br>
+      Este evento es organizado por Mónica Mendoza a través de Huella Energética · <a href="aviso-privacidad.html">Aviso de privacidad</a><br><br>
+      Este sitio no es parte de Facebook Inc. ni está respaldado por Facebook. FACEBOOK es una marca registrada de META Platforms, Inc.
+    </p>
+  </footer>
+
+  <!-- THANK YOU -->
+  <div id="thank-you">
+    <p class="ty-eyebrow">¡Registro completado!</p>
+    <h2 class="ty-title">Tu lugar está <em>reservado.</em></h2>
+    <p class="ty-sub">
+      Revisa tu email — te enviamos el link de Google Meet y tu test de regalo.<br>
+      Ahora únete al grupo de WhatsApp para recibir recordatorios y material previo a la masterclass.
+    </p>
+    <div class="ty-actions">
+      <a href="https://chat.whatsapp.com/BvT1iPGbNexAgRlvqQoo0c?mode=gi_t" class="btn-whatsapp" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Unirme al grupo de WhatsApp
+      </a>
+      <a href="index.html" class="btn-outline">Hacer mi test de Mago Energético →</a>
+    </div>
+    <p class="ty-nota">Te esperamos el <strong style="color:var(--dorado)">Jueves 7 de mayo a las 8pm CDMX</strong></p>
+  </div>
+
+  <script>
+    // CONFIG — reemplazar con endpoint de Make cuando esté listo
+    const CONFIG = {
+      MAKE_WEBHOOK: 'PLACEHOLDER_MAKE_WEBHOOK_URL',
+    };
+
+    // Sticky bar
+    const stickyBar = document.getElementById('stickyBar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        stickyBar.classList.add('visible');
+      } else {
+        stickyBar.classList.remove('visible');
+      }
+    });
+
+    // Fade up observer
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // Formulario
+    const form = document.getElementById('registroForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Registrando...';
+      btn.disabled = true;
+
+      const data = {
+        nombre: form.nombre.value,
+        email: form.email.value,
+        telefono: form.telefono.value || '',
+        fuente: 'masterclass-trauma-magia',
+        fecha_registro: new Date().toISOString(),
+      };
+
+      // Meta Pixel — Lead event
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead');
+      }
+
+      try {
+        if (CONFIG.MAKE_WEBHOOK !== 'PLACEHOLDER_MAKE_WEBHOOK_URL') {
+          await fetch(CONFIG.MAKE_WEBHOOK, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+        }
+      } catch (err) {
+        console.error('Webhook error:', err);
+      }
+
+      // Mostrar thank you
+      const ty = document.getElementById('thank-you');
+      ty.classList.add('visible');
+      window.scrollTo(0, 0);
+
+      // Meta Pixel — CompleteRegistration
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'CompleteRegistration');
+      }
+    });
+  </script>
+
+</body>
+</html>
