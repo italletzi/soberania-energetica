@@ -920,7 +920,13 @@
         gap: 40px;
       }
 
-      .form-card { padding: 32px 24px; }
+      .form-card { padding: 32px 20px; }
+
+      .form-submit {
+        font-size: 15px;
+        padding: 16px 20px;
+        white-space: nowrap;
+      }
 
       .stats-row { gap: 24px; }
 
@@ -1131,7 +1137,7 @@
       </div>
 
       <div class="fade-up">
-        <div class="form-card">
+        <div class="form-card" id="form-card">
           <div class="form-pills">
             <span class="form-pill">Gratuita</span>
             <span class="form-pill">En vivo</span>
@@ -1223,6 +1229,23 @@
       }, { threshold: 0 });
       ctaObserver.observe(heroCta);
     }
+
+    // Smooth scroll con offset para sticky bar
+    document.querySelectorAll('a[href="#registro"], a[href="#form-card"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.getElementById('form-card');
+        if (target) {
+          const offset = 70;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+          setTimeout(() => {
+            const firstInput = target.querySelector('input');
+            if (firstInput) firstInput.focus();
+          }, 600);
+        }
+      });
+    });
 
     // Fade up observer
     const fadeEls = document.querySelectorAll('.fade-up');
