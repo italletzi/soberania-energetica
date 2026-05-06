@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masterclass Gratuita — Trauma y Magia · Huella Energética</title>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2136962077101861');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2136962077101861&ev=PageView&noscript=1"/></noscript>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,
+    document,"clarity","script","w4h0ddtit6");
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & TOKENS ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ciruela:      #3D2B3D;
+      --ciruela-dark: #2B1A38;
+      --ciruela-deep: #1a0f22;
+      --terracota:    #C8856A;
+      --dorado:       #B8935A;
+      --dorado-light: #d4aa72;
+      --crema:        #FAF6F0;
+      --crema-dark:   #F0E8DC;
+      --texto:        #2B1A38;
+      --ff-head:      'Cormorant Garamond', Georgia, serif;
+      --ff-body:      'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff-body);
+      background: var(--crema);
+      color: var(--texto);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ─── ANIMATIONS ──────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shimmer {
+      0%,100% { opacity: .7; }
+      50%      { opacity: 1; }
+    }
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(184,147,90,.45); }
+      70%  { box-shadow: 0 0 0 14px rgba(184,147,90,0); }
+      100% { box-shadow: 0 0 0 0 rgba(184,147,90,0); }
+    }
+
+    .fade-up { animation: fadeUp .7s ease both; }
+    .d1 { animation-delay: .1s; }
+    .d2 { animation-delay: .25s; }
+    .d3 { animation-delay: .4s; }
+    .d4 { animation-delay: .55s; }
+    .d5 { animation-delay: .7s; }
+
+    /* ─── HEADER ──────────────────────────────────────────────── */
+    .site-header {
+      background: var(--ciruela-dark);
+      text-align: center;
+      padding: 18px 24px;
+    }
+    .site-header img { height: 48px; margin: 0 auto; }
+
+    /* ─── HERO ────────────────────────────────────────────────── */
+    .hero {
+      background: var(--ciruela-dark);
+      position: relative;
+      overflow: hidden;
+      padding: 56px 24px 64px;
+      text-align: center;
+    }
+
+    /* Atmospheric grain texture */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: .4;
+    }
+
+    /* Radial glow */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(184,147,90,.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--ff-body);
+      font-size: .72rem;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--dorado);
+      opacity: .5;
+    }
+
+    /* Main headline */
+    .hero-title {
+      font-family: var(--ff-head);
+      font-size: clamp(2rem, 7vw, 3.4rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--crema);
+      margin-bottom: 10px;
+    }
+    .hero-title strong {
+      font-weight: 600;
+      display: block;
+      font-size: clamp(2.2rem, 8vw, 3.8rem);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--terracota);
+    }
+
+    /* Subtitle */
+    .hero-sub {
+      font-family: var(--ff-head);
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(250,246,240,.65);
+      margin-bottom: 36px;
+      line-height: 1.45;
+    }
+
+    /* Date chip */
+    .hero-fecha {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(184,147,90,.4);
+      border-radius: 40px;
+      padding: 10px 22px;
+      font-size: .82rem;
+      color: rgba(250,246,240,.75);
+      margin-bottom: 36px;
+      letter-spacing: .04em;
+    }
+    .hero-fecha strong { color: var(--dorado-light); font-weight: 500; }
+
+    /* ─── PRIMARY CTA (hero) ──────────────────────────────────── */
+    .btn-cta-primary {
+      display: inline-block;
+      background: var(--terracota);
+      color: #fff;
+      font-family: var(--ff-body);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      padding: 20px 40px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+      max-width: 480px;
+      transition: background .2s, transform .15s;
+      animation: pulse-ring 2.5s ease-out 1.5s infinite;
+    }
+    .btn-cta-primary:hover {
+      background: #b57560;
+      transform: translateY(-2px);
+      animation: none;
+    }
+
+    .hero-privacy {
+      margin-top: 14px;
+      font-size: .73rem;
+      color: rgba(250,246,240,.38);
+    }
+
+    /* ─── GOLD BAND ───────────────────────────────────────────── */
+    .gold-band {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--dorado) 25%, var(--terracota) 75%, transparent);
+    }
+
+    /* ─── VIDEO SECTION ───────────────────────────────────────── */
+    .video-section {
+      background: var(--ciruela-dark);
+      padding: 0 24px 72px;
+      text-align: center;
+    }
+
+    /* Vertical 9:16 container */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(184,147,90,.2);
+    }
+    .video-wrapper::before {
+      content: '';
+      display: block;
+      padding-top: 177.78%; /* 9:16 */
+    }
+
+    #yt-iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* End overlay */
+    #yt-overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--ciruela-deep);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .5s;
+      padding: 32px;
+    }
+    #yt-overlay.visible { opacity: 1; pointer-events: all; }
+    #yt-overlay p {
+      font-family: var(--ff-head);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--crema);
+      text-align: center;
+      line-height: 1.4;
+    }
+    .btn-replay {
+      background: transparent;
+      border: 1px solid var(--dorado);
+      color: var(--dorado);
+      font-family: var(--ff-body);
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-replay:hover { background: rgba(184,147,90,.12); }
+
+    /* Unmute button */
+    #btn-unmute {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(184,147,90,.88);
+      border: none;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background .2s, transform .15s;
+      box-shadow: 0 4px 16px rgba(0,0,0,.4);
+    }
+    #btn-unmute:hover { background: var(--dorado); transform: scale(1.08); }
+    #btn-unmute svg { width: 18px; height: 18px; fill: #fff; }
+
+    /* ─── SECTIONS ────────────────────────────────────────────── */
+    .section { padding: 72px 24px; }
+    .section-inner { max-width: 720px; margin: 0 auto; }
+    .section-inner--wide { max-width: 900px; margin: 0 auto; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: .68rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--ff-head);
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 28px;
+    }
+    .section-title em { font-style: italic; color: var(--terracota); }
+
+    /* ─── AGITACIÓN (problema) ────────────────────────────────── */
+    .agit-section { background: var(--crema); }
+
+    .agit-pullquote {
+      border-left: 3px solid var(--terracota);
+      padding: 24px 28px;
+      background: var(--crema-dark);
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 32px;
+    }
+    .agit-pullquote p {
+      font-family: var(--ff-head);
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ciruela-dark);
+      line-height: 1.6;
+    }
+
+    .agit-body {
+      font-size: .97rem;
+      color: #4a3a4a;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    /* Cost of repetition block */
+    .costo-block {
+      background: var(--ciruela-dark);
+      color: var(--crema);
+      border-radius: 8px;
+      padding: 36px 32px;
+      margin-top: 40px;
+    }
+    .costo-block .section-tag { color: var(--terracota); }
+    .costo-block h3 {
+      font-family: var(--ff-head);
+      font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 18px;
+      color: var(--crema);
+    }
+    .costo-block h3 em { color: var(--terracota); font-style: italic; }
+    .costo-block p {
+      font-size: .9rem;
+      color: rgba(250,246,240,.75);
+      line-height: 1.8;
+    }
+
+    /* ─── POR QUÉ LA TERAPIA NO ALCANZÓ ──────────────────────── */
+    .terapia-section { background: var(--crema-dark); }
+
+    .terapia-inner {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .terapia-icon-col {
+      flex: 0 0 80px;
+      text-align: center;
+    }
+    .terapia-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--crema);
+      border: 2px solid var(--dorado);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto;
+    }
+    .terapia-text { flex: 1 1 260px; }
+    .terapia-text p {
+      font-size: .97rem;
+      color: #4a3a4a;
+      line-height: 1.8;
+    }
+
+    /* ─── QUÉ VAMOS A RESOLVER ────────────────────────────────── */
+    .resolve-section { background: var(--ciruela-dark); color: var(--crema); }
+    .resolve-section .section-title { color: var(--crema); }
+    .resolve-section .section-tag { color: var(--terracota); }
+
+    .resolve-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 36px;
+    }
+    .resolve-item {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(184,147,90,.15);
+    }
+    .resolve-item:last-child { border-bottom: none; }
+    .resolve-num {
+      font-family: var(--ff-head);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--dorado);
+      opacity: .35;
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 48px;
+    }
+    .resolve-content h3 {
+      font-family: var(--ff-head);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--crema);
+      margin-bottom: 8px;
+    }
+    .resolve-content p {
+      font-size: .9rem;
+      color: rgba(250,246,240,.7);
+      line-height: 1.7;
+    }
+
+    /* ─── SOBRE MÓNICA ────────────────────────────────────────── */
+    .monica-section { background: var(--crema); }
+
+    .monica-layout {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .monica-photo-col {
+      flex: 0 0 200px;
+    }
+    .monica-photo-col img {
+      width: 100%;
+      border-radius: 4px;
+      filter: sepia(.06);
+    }
+    .monica-text { flex: 1 1 260px; }
+    .monica-text .section-tag { display: block; }
+    .monica-text .section-title { text-align: left; margin-bottom: 16px; }
+    .monica-specialidad {
+      font-family: var(--ff-head);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--terracota);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .monica-text p {
+      font-size: .93rem;
+      color: #4a3a4a;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--crema-dark);
+    }
+    .stat-num {
+      font-family: var(--ff-head);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--ciruela-dark);
+    }
+    .stat-num span { color: var(--dorado); }
+    .stat-label { font-size: .75rem; color: #9a8a9a; letter-spacing: .06em; margin-top: 2px; }
+
+    /* ─── URGENCIA FINAL ──────────────────────────────────────── */
+    .urgencia-section { background: var(--crema-dark); }
+
+    .urgencia-pullquote {
+      font-family: var(--ff-head);
+      font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ciruela-dark);
+      line-height: 1.55;
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 40px;
+    }
+    .urgencia-pullquote strong {
+      font-weight: 600;
+      font-style: normal;
+      color: var(--terracota);
+    }
+
+    /* ─── FORM SECTION ────────────────────────────────────────── */
+    .form-section {
+      background: var(--ciruela-dark);
+      padding: 80px 24px;
+    }
+    .form-inner {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .form-inner .section-title { color: var(--crema); margin-bottom: 8px; }
+    .form-inner .section-tag { color: var(--terracota); }
+    .form-subtitle {
+      font-size: .93rem;
+      color: rgba(250,246,240,.65);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    #form-masterclass { display: flex; flex-direction: column; gap: 14px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 7px; text-align: left; }
+    .form-group label {
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(250,246,240,.5);
+    }
+    .form-group input,
+    .form-group select {
+      background: rgba(250,246,240,.07);
+      border: 1px solid rgba(250,246,240,.15);
+      border-radius: 4px;
+      padding: 14px 16px;
+      color: var(--crema);
+      font-family: var(--ff-body);
+      font-size: .97rem;
+      outline: none;
+      transition: border-color .2s;
+      -webkit-appearance: none;
+    }
+    .form-group input::placeholder { color: rgba(250,246,240,.3); }
+    .form-group input:focus,
+    .form-group select:focus { border-color: var(--dorado); }
+    .form-group select option { background: var(--ciruela-dark); }
+
+    #form-error {
+      background: rgba(200,133,106,.12);
+      border: 1px solid rgba(200,133,106,.35);
+      color: var(--terracota);
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-size: .875rem;
+      display: none;
+    }
+    #form-error.visible { display: block; }
+
+    .btn-registro {
+      background: var(--terracota);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 20px 32px;
+      font-family: var(--ff-body);
+      font-size: .97rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      cursor: pointer;
+      width: 100%;
+      transition: background .2s, transform .15s;
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+    .btn-registro:hover { background: #b57560; transform: translateY(-1px); }
+    .btn-registro:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+
+    .form-privacy {
+      font-size: .72rem;
+      color: rgba(250,246,240,.35);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    .form-privacy a { color: rgba(250,246,240,.5); text-decoration: underline; }
+
+    /* ─── THANK-YOU ───────────────────────────────────────────── */
+    #thank-you { display: none; text-align: center; }
+    #thank-you.visible { display: block; }
+    #form-masterclass.hidden { display: none; }
+
+    .ty-icon { font-size: 2.8rem; margin-bottom: 18px; }
+    .ty-title {
+      font-family: var(--ff-head);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 400;
+      color: var(--crema);
+      margin-bottom: 14px;
+    }
+    .ty-body {
+      font-size: .93rem;
+      color: rgba(250,246,240,.68);
+      margin-bottom: 32px;
+      line-height: 1.65;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 4px;
+      padding: 16px 32px;
+      font-family: var(--ff-body);
+      font-size: .97rem;
+      font-weight: 500;
+      transition: background .2s, transform .15s;
+    }
+    .btn-whatsapp:hover { background: #1fba59; transform: translateY(-1px); }
+    .btn-whatsapp svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+
+    /* ─── FOOTER ──────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--ciruela-deep);
+      color: rgba(250,246,240,.38);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: .78rem;
+    }
+    .site-footer a { color: rgba(250,246,240,.5); text-decoration: underline; }
+
+    /* ─── STICKY BAR ──────────────────────────────────────────── */
+    #sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--ciruela-deep);
+      border-top: 1px solid rgba(184,147,90,.25);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      z-index: 100;
+      transform: translateY(100%);
+      transition: transform .35s cubic-bezier(.4,0,.2,1);
+      box-shadow: 0 -8px 32px rgba(0,0,0,.35);
+    }
+    #sticky-bar.visible { transform: translateY(0); }
+
+    .sticky-text {
+      flex: 1;
+      min-width: 0;
+    }
+    .sticky-text strong {
+      display: block;
+      font-family: var(--ff-head);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--crema);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sticky-text span {
+      font-size: .72rem;
+      color: rgba(250,246,240,.5);
+      letter-spacing: .04em;
+    }
+    .btn-sticky {
+      flex-shrink: 0;
+      background: var(--terracota);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 12px 20px;
+      font-family: var(--ff-body);
+      font-size: .82rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-sticky:hover { background: #b57560; }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      /* Logo header: oculto en mobile — el hero ya es todo ciruela-dark, no necesita más altura */
+      .site-header { display: none; }
+
+      /* Hero: menos padding arriba sin el header */
+      .hero { padding-top: 44px; }
+
+      /* Chip de fecha: oculto en mobile para que el CTA entre en pantalla */
+      .hero-fecha { display: none; }
+
+      /* Botón CTA hero: más compacto en mobile */
+      .btn-cta-primary {
+        font-size: .88rem;
+        padding: 16px 24px;
+      }
+
+      .video-wrapper { max-width: 290px; }
+      .monica-photo-col { flex: 0 0 100%; }
+      .monica-photo-col img { max-width: 180px; margin: 0 auto; }
+      .terapia-icon-col { flex: 0 0 100%; }
+      .stat-row { gap: 20px; }
+      .costo-block { padding: 28px 20px; }
+
+      /* Sticky bar: texto más corto en mobile */
+      .sticky-text strong { font-size: .88rem; }
+      .btn-sticky { padding: 11px 16px; font-size: .78rem; }
+    }
+
+    /* Sticky bar: solo en mobile */
+    @media (min-width: 601px) {
+      #sticky-bar { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <img src="img/MB3.svg" alt="Huella Energética — Mónica Mendoza" />
+  </header>
+
+  <!-- ════════════════════════════════════════
+       HERO — Título + CTA primero
+  ════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div class="hero-eyebrow fade-up d1">Masterclass gratuita</div>
+
+      <h1 class="hero-title fade-up d2">
+        La magia comienza donde<br>
+        <em>el trauma termina</em>
+      </h1>
+
+      <p class="hero-sub fade-up d3">
+        Cómo recuperar la energía que tienes<br>secuestrada en tu propio cuerpo.
+      </p>
+
+      <div class="hero-fecha fade-up d3">
+        <span>📅</span>
+        <span><strong>Miércoles 13 de mayo · 8 PM</strong> · Google Meet · Sin costo</span>
+      </div>
+
+      <!-- CTA INMEDIATO (antes del scroll) -->
+      <a href="#registro" class="btn-cta-primary fade-up d4">
+        Sí, quiero transformar mi trauma en manifestación
+      </a>
+
+      <p class="hero-privacy fade-up d5">
+        🔒 Tu información está 100% segura y nunca la compartiremos con nadie.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       VIDEO DE MÓNICA (9:16 · YouTube embed)
+       Inmediatamente después del CTA hero
+  ════════════════════════════════════════ -->
+  <section class="video-section">
+    <div class="video-wrapper">
+      <iframe
+        id="yt-iframe"
+        src="https://www.youtube.com/embed/H5Lq1s-O6Fo?autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=H5Lq1s-O6Fo&enablejsapi=1&modestbranding=1&playsinline=1"
+        title="Mensaje de Mónica Mendoza"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      ></iframe>
+
+      <!-- Overlay al terminar (tapa sugerencias de YouTube) -->
+      <div id="yt-overlay">
+        <p>"El universo tiene la mesa puesta. La magia está lista."</p>
+        <button class="btn-replay" id="btn-replay">Ver de nuevo</button>
+      </div>
+
+      <!-- Botón unmute dorado -->
+      <button id="btn-unmute" aria-label="Activar / silenciar sonido">
+        <svg id="icon-muted" viewBox="0 0 24 24"><path d="M16.5 12A4.5 4.5 0 0 0 14 7.97V10.18l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.796 8.796 0 0 0 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06A8.99 8.99 0 0 0 17.73 18l1.73 1.73L21 18.46 5.54 3 4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+        <svg id="icon-unmuted" viewBox="0 0 24 24" style="display:none"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <div class="gold-band"></div>
+
+  <!-- ════════════════════════════════════════
+       AGITACIÓN — El espectador de su destino
+  ════════════════════════════════════════ -->
+  <section class="section agit-section">
+    <div class="section-inner">
+
+      <span class="section-tag">El problema real</span>
+      <h2 class="section-title">La frustración de ser un espectador<br>de tu propio <em>destino</em></h2>
+
+      <div class="agit-pullquote">
+        <p>"Es desgastante sentir que, a pesar de todo el trabajo interno que has hecho, hay un techo invisible que no te permite avanzar. Ves a otros fluir con naturalidad en sus relaciones y proyectos, mientras tú sientes que tienes que empujar la vida para que algo suceda."</p>
+      </div>
+
+      <p class="agit-body">No es falta de capacidad. Es que tu energía está siendo consumida por memorias que tu cuerpo aún no ha aprendido a soltar.</p>
+
+      <p class="agit-body">"El problema de postergar esta liberación no es solo el estancamiento de hoy. El verdadero riesgo es acostumbrarte a vivir por debajo de tu potencial. Se nos va la vida esperando el momento perfecto para sanar, sin darnos cuenta de que cada día que pasamos bajo el mando del trauma, es un día que le restamos a nuestra verdadera capacidad de creación."</p>
+
+      <!-- El costo de la repetición -->
+      <div class="costo-block">
+        <span class="section-tag">El costo de la repetición</span>
+        <h3>Si no intervienes en tu Huella Energética ahora, el riesgo no es que te pase algo malo. Es que no te pase <em>nada nuevo.</em></h3>
+        <p>"El trauma tiene una sola misión: que el mañana se parezca exactamente al ayer para mantenerte 'a salvo'. Pero en esa seguridad simulada, se muere tu magia. Que tus próximos cinco años sean una réplica exacta de tus últimos cinco, viendo cómo tus sueños se quedan en el plano de lo 'pendiente' mientras tu energía se agota en mantener nudos que ya no deberían estar ahí."</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       POR QUÉ LA TERAPIA NO FUE SUFICIENTE
+  ════════════════════════════════════════ -->
+  <section class="section terapia-section">
+    <div class="section-inner">
+      <span class="section-tag">Por qué el entendimiento no es suficiente</span>
+      <h2 class="section-title">Ya sabes qué te pasó.<br>Y tu realidad <em>no se mueve.</em></h2>
+
+      <div class="terapia-inner">
+        <div class="terapia-icon-col">
+          <div class="terapia-icon">🧬</div>
+        </div>
+        <div class="terapia-text">
+          <p>"Seguramente ya sabes qué te pasó y por qué te pasó, pero tu realidad no se mueve. Esto es porque el trauma no se borra únicamente platicando. El trauma es un nudo energético estancado en tus emociones y en tu campo cuántico; es una información física que no se va con palabras."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-band"></div>
+
+  <!-- ════════════════════════════════════════
+       QUÉ VAMOS A RESOLVER
+  ════════════════════════════════════════ -->
+  <section class="section resolve-section">
+    <div class="section-inner">
+      <span class="section-tag">En esta masterclass</span>
+      <h2 class="section-title">¿Qué vamos a <em>resolver</em> juntas?</h2>
+
+      <ul class="resolve-list">
+        <li class="resolve-item">
+          <span class="resolve-num">01</span>
+          <div class="resolve-content">
+            <h3>Diagnóstico de tu Sello</h3>
+            <p>Entenderás por qué tu Huella Energética está gritando "supervivencia" y cómo eso cierra las puertas del universo.</p>
+          </div>
+        </li>
+        <li class="resolve-item">
+          <span class="resolve-num">02</span>
+          <div class="resolve-content">
+            <h3>Liberación de Energía Secuestrada</h3>
+            <p>Aprenderás por qué el trauma estancado es lo más difícil de quitar y cómo el método de liberación somática de Mónica lo desbloquea.</p>
+          </div>
+        </li>
+        <li class="resolve-item">
+          <span class="resolve-num">03</span>
+          <div class="resolve-content">
+            <h3>Activación del Mago</h3>
+            <p>La tecnología exacta para canalizar esa energía recuperada a través de rituales que funcionan como órdenes directas al campo cuántico.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SOBRE MÓNICA
+  ════════════════════════════════════════ -->
+  <section class="section monica-section">
+    <div class="section-inner--wide">
+      <div class="monica-layout">
+        <div class="monica-photo-col">
+          <img src="img/monica-rosa.jpg" alt="Mónica Mendoza — mentora energética" />
+        </div>
+        <div class="monica-text">
+          <span class="section-tag">Imparte</span>
+          <h2 class="section-title">Mónica <em>Mendoza</em></h2>
+          <p class="monica-specialidad">Mentora energética especialista en huella energética</p>
+          <p>"Mi especialidad no es escucharte hablar del dolor, es entrar en tu laboratorio biológico para transformar ese trauma en energía de manifestación. Lo que hoy te pesa, mañana será el motor que doble la realidad a tu voluntad."</p>
+
+          <div class="stat-row">
+            <div>
+              <div class="stat-num">7<span>+</span></div>
+              <div class="stat-label">años de práctica</div>
+            </div>
+            <div>
+              <div class="stat-num">2K<span>+</span></div>
+              <div class="stat-label">personas acompañadas</div>
+            </div>
+            <div>
+              <div class="stat-num">95<span>%</span></div>
+              <div class="stat-label">efectividad sostenida</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-band"></div>
+
+  <!-- ════════════════════════════════════════
+       URGENCIA — CTA final
+  ════════════════════════════════════════ -->
+  <section class="section urgencia-section">
+    <div class="section-inner">
+      <h2 class="section-title" style="text-align:center">Deja de ser una espectadora<br>de tu propio <em>potencial.</em></h2>
+
+      <p class="urgencia-pullquote">
+        "Cada día que pasas bajo el mando del trauma, es un día que le robas a tu capacidad de creación. El universo tiene la mesa puesta y la magia está lista, pero no puede entregársela a un sistema que está configurado para la escasez. <strong>No permitas que el pasado dicte tu destino ni un segundo más."</strong>
+      </p>
+
+      <div style="text-align:center">
+        <a href="#registro" class="btn-cta-primary" style="display:inline-block;width:auto;padding:20px 48px">
+          Sí, quiero transformar mi trauma en manifestación
+        </a>
+        <p style="font-size:.78rem;color:#8a7a8a;margin-top:14px">
+          📅 Miércoles 13 de mayo · 8 PM · Google Meet · Sin costo
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       FORMULARIO
+  ════════════════════════════════════════ -->
+  <section class="form-section" id="registro">
+    <div class="form-inner">
+
+      <!-- Thank-you state -->
+      <div id="thank-you">
+        <div class="ty-icon">✨</div>
+        <h3 class="ty-title">¡Tu lugar está reservado!</h3>
+        <p class="ty-body">
+          Te hemos enviado los detalles a tu correo. Únete ahora al grupo de WhatsApp para recibir recordatorios y material previo a la masterclass.
+        </p>
+        <a
+          href="https://chat.whatsapp.com/BvT1iPGbNexAgRlvqQoo0c?mode=gi_t"
+          target="_blank"
+          rel="noopener"
+          class="btn-whatsapp"
+        >
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Unirme al grupo de WhatsApp
+        </a>
+        <a href="/index.html" style="display:inline-block;margin-top:16px;color:rgba(250,246,240,.5);font-size:.82rem;text-decoration:underline;letter-spacing:.04em">
+          También puedes hacer el test de tu Huella Energética →
+        </a>
+      </div>
+
+      <!-- Form -->
+      <form id="form-masterclass" novalidate>
+        <span class="section-tag" style="color:var(--terracota);display:block;margin-bottom:8px">Registro gratuito</span>
+        <h2 class="section-title" style="color:var(--crema);margin-bottom:8px">Reserva tu lugar</h2>
+        <p class="form-subtitle">Miércoles 13 de mayo · 8 PM · Google Meet</p>
+
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="given-name" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" required autocomplete="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp</label>
+          <div id="wa-wrap" style="display:flex;align-items:center;background:rgba(250,246,240,.07);border:1px solid rgba(250,246,240,.15);border-radius:4px;overflow:hidden">
+            <span style="padding:0 14px;font-size:.93rem;color:rgba(250,246,240,.6);border-right:1px solid rgba(250,246,240,.12);white-space:nowrap;user-select:none">🇲🇽 +52</span>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="55 1234 5678" required autocomplete="tel"
+              style="background:transparent;border:none;outline:none;padding:14px 14px;color:var(--crema);font-family:var(--ff-body);font-size:.97rem;flex:1;min-width:0"
+              onfocus="this.parentElement.style.borderColor='var(--dorado)'"
+              onblur="this.parentElement.style.borderColor='rgba(250,246,240,.15)'"/>
+          </div>
+        </div>
+
+        <div id="form-error"></div>
+
+        <button type="submit" class="btn-registro" id="btn-submit">
+          Sí, quiero transformar mi trauma en manifestación
+        </button>
+
+        <p class="form-privacy">
+          🔒 Tu información es privada y segura. Al registrarte aceptas nuestro
+          <a href="/aviso-privacidad.html" target="_blank">aviso de privacidad</a>.
+        </p>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       STICKY BAR — aparece al pasar el CTA hero
+  ════════════════════════════════════════ -->
+  <div id="sticky-bar" role="complementary" aria-label="Registro rápido">
+    <div class="sticky-text">
+      <strong>La magia comienza donde el trauma termina</strong>
+      <span>Miércoles 13 de mayo · 8 PM · Google Meet</span>
+    </div>
+    <a href="#registro" class="btn-sticky">Reservar mi lugar →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© 2025 Huella Energética · Mónica Mendoza · <a href="/aviso-privacidad.html">Aviso de privacidad</a></p>
+
+  </footer>
+
+  <!-- ════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════ -->
+  <script>
+    /* ── YouTube IFrame API ── */
+    const YT_VIDEO_ID = 'H5Lq1s-O6Fo';
+    let player;
+    let isMuted = true;
+
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+
+    window.onYouTubeIframeAPIReady = function () {
+      player = new YT.Player('yt-iframe', {
+        videoId: YT_VIDEO_ID,
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          controls: 0,
+          rel: 0,
+          loop: 1,
+          playlist: YT_VIDEO_ID,
+          modestbranding: 1,
+          playsinline: 1,
+        },
+        events: {
+          onReady: e => e.target.playVideo(),
+          onStateChange: e => {
+            if (e.data === YT.PlayerState.ENDED) {
+              document.getElementById('yt-overlay').classList.add('visible');
+            }
+          }
+        }
+      });
+    };
+
+    /* Unmute button */
+    document.getElementById('btn-unmute').addEventListener('click', function () {
+      if (!player) return;
+      if (isMuted) {
+        player.unMute(); player.setVolume(100);
+        isMuted = false;
+        document.getElementById('icon-muted').style.display = 'none';
+        document.getElementById('icon-unmuted').style.display = 'block';
+        this.style.background = 'rgba(61,43,61,.85)';
+      } else {
+        player.mute();
+        isMuted = true;
+        document.getElementById('icon-muted').style.display = 'block';
+        document.getElementById('icon-unmuted').style.display = 'none';
+        this.style.background = 'rgba(184,147,90,.88)';
+      }
+    });
+
+    /* Replay */
+    document.getElementById('btn-replay').addEventListener('click', function () {
+      document.getElementById('yt-overlay').classList.remove('visible');
+      if (player) { player.seekTo(0); player.playVideo(); }
+    });
+
+    /* ── Form ── */
+    const MAKE_WEBHOOK = 'https://hook.us2.make.com/6d1widg6x92qclr4y3denhndoe17pb41';
+
+    const form      = document.getElementById('form-masterclass');
+    const btnSubmit = document.getElementById('btn-submit');
+    const errMsg    = document.getElementById('form-error');
+    const thankYou  = document.getElementById('thank-you');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      errMsg.classList.remove('visible');
+
+      const nombre    = document.getElementById('nombre').value.trim();
+      const email     = document.getElementById('email').value.trim();
+      const waNum     = document.getElementById('whatsapp').value.trim();
+      const whatsapp  = waNum ? '+52' + waNum.replace(/^\+?52/, '') : '';
+
+      if (!nombre || !email || !waNum) {
+        errMsg.textContent = 'Por favor completa todos los campos.';
+        errMsg.classList.add('visible');
+        return;
+      }
+
+      btnSubmit.disabled = true;
+      btnSubmit.textContent = 'Enviando…';
+
+      const data = { nombre, email, whatsapp, fuente: 'masterclass-trauma' };
+
+      try {
+        // ⚠️ CRITICAL: application/x-www-form-urlencoded — Make no parsea JSON correctamente
+        const res = await fetch(MAKE_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString(),
+        });
+
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        if (typeof fbq === 'function') {
+          fbq('track', 'CompleteRegistration');
+        }
+
+        form.classList.add('hidden');
+        thankYou.classList.add('visible');
+        document.getElementById('registro').scrollIntoView({ behavior: 'smooth' });
+
+      } catch (err) {
+        console.error('Form error:', err);
+        errMsg.textContent = 'Hubo un problema al enviar tu registro. Por favor intenta de nuevo.';
+        errMsg.classList.add('visible');
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = 'Sí, quiero transformar mi trauma en manifestación';
+      }
+    /* ── Sticky bar — aparece al pasar el CTA hero, desaparece al llegar al form ── */
+    (function () {
+      const stickyBar   = document.getElementById('sticky-bar');
+      const heroCta     = document.querySelector('.btn-cta-primary');
+      const formSection = document.getElementById('registro');
+      if (!stickyBar || !heroCta) return;
+
+      function updateSticky() {
+        const heroRect = heroCta.getBoundingClientRect();
+        const formRect = formSection ? formSection.getBoundingClientRect() : null;
+
+        const heroGone   = heroRect.bottom < 0;           // CTA hero fuera de pantalla (arriba)
+        const formHere   = formRect && formRect.top < window.innerHeight * 0.85; // form llegando
+
+        if (heroGone && !formHere) {
+          stickyBar.classList.add('visible');
+        } else {
+          stickyBar.classList.remove('visible');
+        }
+      }
+
+      // Revisa en scroll (throttled)
+      let ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(function () { updateSticky(); ticking = false; });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Revisa al cargar (por si la página abre con hash)
+      updateSticky();
+    })();
+    </script>
+</html>
