@@ -819,7 +819,7 @@
         id="yt-iframe"
         src="https://www.youtube.com/embed/H5Lq1s-O6Fo?autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=H5Lq1s-O6Fo&enablejsapi=1&modestbranding=1&playsinline=1"
         title="Mensaje de Mónica Mendoza"
-        allow="autoplay; encrypted-media"
+        allow="autoplay; encrypted-media; picture-in-picture"
         allowfullscreen
       ></iframe>
 
@@ -1027,9 +1027,7 @@
           <div id="wa-wrap" style="display:flex;align-items:center;background:rgba(250,246,240,.07);border:1px solid rgba(250,246,240,.15);border-radius:4px;overflow:hidden">
             <span style="padding:0 14px;font-size:.93rem;color:rgba(250,246,240,.6);border-right:1px solid rgba(250,246,240,.12);white-space:nowrap;user-select:none">🇲🇽 +52</span>
             <input type="tel" id="whatsapp" name="whatsapp" placeholder="55 1234 5678" required autocomplete="tel"
-              style="background:transparent;border:none;outline:none;padding:14px 14px;color:var(--crema);font-family:var(--ff-body);font-size:.97rem;flex:1;min-width:0"
-              onfocus="this.parentElement.style.borderColor='var(--dorado)'"
-              onblur="this.parentElement.style.borderColor='rgba(250,246,240,.15)'"/>
+              style="background:transparent;border:none;outline:none;padding:14px 14px;color:var(--crema);font-family:var(--ff-body);font-size:.97rem;flex:1;min-width:0"/>
           </div>
         </div>
 
@@ -1079,21 +1077,11 @@
     document.head.appendChild(tag);
 
     window.onYouTubeIframeAPIReady = function () {
+      // Attach to existing iframe (already has src) — don't recreate it
       player = new YT.Player('yt-iframe', {
-        videoId: YT_VIDEO_ID,
-        playerVars: {
-          autoplay: 1,
-          mute: 1,
-          controls: 0,
-          rel: 0,
-          loop: 1,
-          playlist: YT_VIDEO_ID,
-          modestbranding: 1,
-          playsinline: 1,
-        },
         events: {
-          onReady: e => e.target.playVideo(),
-          onStateChange: e => {
+          onReady: function(e) { e.target.playVideo(); },
+          onStateChange: function(e) {
             if (e.data === YT.PlayerState.ENDED) {
               document.getElementById('yt-overlay').classList.add('visible');
             }
@@ -1104,19 +1092,33 @@
 
     /* Unmute button */
     document.getElementById('btn-unmute').addEventListener('click', function () {
-      if (!player) return;
+      const btn = this;
+      const iframe = document.getElementById('yt-iframe');
       if (isMuted) {
-        player.unMute(); player.setVolume(100);
+        // API method (desktop)
+        if (player && typeof player.unMute === 'function') {
+          try { player.unMute(); player.setVolume(100); } catch(e) {}
+        }
+        // postMessage fallback (mobile Safari / Chrome)
+        if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+          iframe.contentWindow.postMessage('{"event":"command","func":"setVolume","args":[100]}', '*');
+        }
         isMuted = false;
         document.getElementById('icon-muted').style.display = 'none';
         document.getElementById('icon-unmuted').style.display = 'block';
-        this.style.background = 'rgba(61,43,61,.85)';
+        btn.style.background = 'rgba(61,43,61,.85)';
       } else {
-        player.mute();
+        if (player && typeof player.mute === 'function') {
+          try { player.mute(); } catch(e) {}
+        }
+        if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+        }
         isMuted = true;
         document.getElementById('icon-muted').style.display = 'block';
         document.getElementById('icon-unmuted').style.display = 'none';
-        this.style.background = 'rgba(184,147,90,.88)';
+        btn.style.background = 'rgba(184,147,90,.88)';
       }
     });
 
@@ -1128,6 +1130,14 @@
 
     /* ── Form ── */
     const MAKE_WEBHOOK = 'https://hook.us2.make.com/6d1widg6x92qclr4y3denhndoe17pb41';
+
+    // WA field focus styles
+    const waInput = document.getElementById('whatsapp');
+    const waWrap  = document.getElementById('wa-wrap');
+    if (waInput && waWrap) {
+      waInput.addEventListener('focus', function() { waWrap.style.borderColor = 'var(--dorado)'; });
+      waInput.addEventListener('blur',  function() { waWrap.style.borderColor = 'rgba(250,246,240,.15)'; });
+    }
 
     const form      = document.getElementById('form-masterclass');
     const btnSubmit = document.getElementById('btn-submit');
@@ -1141,7 +1151,7 @@
       const nombre    = document.getElementById('nombre').value.trim();
       const email     = document.getElementById('email').value.trim();
       const waNum     = document.getElementById('whatsapp').value.trim();
-      const whatsapp  = waNum ? '+52' + waNum.replace(/^\+?52/, '') : '';
+      const telefono  = waNum ? '+52' + waNum.replace(/^\+?52/, '') : '';
 
       if (!nombre || !email || !waNum) {
         errMsg.textContent = 'Por favor completa todos los campos.';
@@ -1152,7 +1162,7 @@
       btnSubmit.disabled = true;
       btnSubmit.textContent = 'Enviando…';
 
-      const data = { nombre, email, whatsapp, fuente: 'masterclass-trauma' };
+      const data = { nombre, email, telefono, fuente: 'masterclass-trauma' };
 
       try {
         // ⚠️ CRITICAL: application/x-www-form-urlencoded — Make no parsea JSON correctamente
@@ -1179,6 +1189,8 @@
         btnSubmit.disabled = false;
         btnSubmit.textContent = 'Sí, quiero transformar mi trauma en manifestación';
       }
+    });
+
     /* ── Sticky bar — aparece al pasar el CTA hero, desaparece al llegar al form ── */
     (function () {
       const stickyBar   = document.getElementById('sticky-bar');
@@ -1213,4 +1225,5 @@
       updateSticky();
     })();
     </script>
+</body>
 </html>
